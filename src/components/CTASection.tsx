@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export function CTASection() {
@@ -17,7 +18,13 @@ export function CTASection() {
       <div className="flex-1 w-full relative flex items-center justify-center overflow-visible">
         
         {/* Giant 3D Card */}
-        <div className="relative w-full h-[60vh] md:h-[80vh] flex items-center justify-center perspective-[1500px] overflow-visible">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9, y: 50 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative w-full h-[60vh] md:h-[80vh] flex items-center justify-center perspective-[1500px] overflow-visible"
+        >
           <div className="relative w-[80vw] h-[50vw] md:w-[60vw] md:h-[35vw] 2xl:w-[50vw] 2xl:h-[30vw] bg-[#e3d9c2] rounded-[20px] md:rounded-[40px] 2xl:rounded-[60px] shadow-2xl transform rotate-x-[35deg] rotate-z-[15deg] rotate-y-[-10deg] scale-110 md:scale-125 transition-transform duration-1000 ease-out hover:rotate-x-[30deg] hover:rotate-z-[12deg] flex flex-col justify-between overflow-hidden border border-black/10">
             
             {/* Simple Pattern (Top-Left) */}
@@ -62,11 +69,17 @@ export function CTASection() {
                </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Floating Tooltip/Card */}
         {showTooltip && (
-          <div className="absolute bottom-[20%] right-[5%] md:right-[10%] 2xl:right-[15%] w-[300px] md:w-[400px] 2xl:w-[500px] bg-white text-black rounded-[20px] md:rounded-[30px] p-6 md:p-8 2xl:p-10 shadow-2xl z-20 animate-in fade-in slide-in-from-bottom-10 duration-700">
+          <motion.div 
+            initial={{ opacity: 0, x: 50, y: 50 }}
+            whileInView={{ opacity: 1, x: 0, y: 0 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+            className="absolute bottom-[20%] right-[5%] md:right-[10%] 2xl:right-[15%] w-[300px] md:w-[400px] 2xl:w-[500px] bg-white text-black rounded-[20px] md:rounded-[30px] p-6 md:p-8 2xl:p-10 shadow-2xl z-20"
+          >
             <button 
               onClick={() => setShowTooltip(false)}
               className="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors"
@@ -79,26 +92,38 @@ export function CTASection() {
             <p className="font-sans text-gray-600 text-sm md:text-base 2xl:text-xl leading-relaxed">
               Install the app now and get a 10% cashback on your first purchase.
             </p>
-          </div>
+          </motion.div>
         )}
       </div>
 
       {/* Footer Bar */}
       <div className="w-full bg-black border-t border-white/10 px-4 md:px-8 2xl:px-16 3xl:px-24 py-8 md:py-12 flex flex-col xl:flex-row items-center justify-between gap-8 md:gap-12 z-30">
         <div className="flex-shrink-0">
-          <h2 className="font-display font-black text-4xl md:text-6xl 2xl:text-8xl 3xl:text-9xl uppercase tracking-tighter leading-none text-white whitespace-nowrap">
+          <motion.h2 
+            initial={{ y: "100%" }}
+            whileInView={{ y: 0 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="font-display font-black text-4xl md:text-6xl 2xl:text-8xl 3xl:text-9xl uppercase tracking-tighter leading-none text-white whitespace-nowrap"
+          >
             Swipe, Pay, Done
-          </h2>
+          </motion.h2>
         </div>
         
-        <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8 w-full xl:w-auto justify-end">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          className="flex flex-col md:flex-row items-center gap-6 md:gap-8 w-full xl:w-auto justify-end"
+        >
           <p className="font-sans text-gray-400 text-sm md:text-base 2xl:text-xl leading-relaxed text-center md:text-right max-w-md">
             Make payments with a virtual card linked to your favorite digital assets.
           </p>
           <Button className="rounded-full bg-white text-black hover:bg-gray-200 px-8 py-6 text-base font-bold flex-shrink-0">
             Download the App
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

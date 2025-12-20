@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { CreditCard, RefreshCw, ShieldCheck, ChevronDown } from "lucide-react";
 
@@ -71,14 +72,24 @@ export function InteractiveFeatureSection() {
         
         {/* Left Column: Content */}
         <div className="flex flex-col justify-center h-full w-full">
-          <h2 className="font-display text-5xl md:text-7xl 2xl:text-8xl 3xl:text-[8rem] font-black uppercase mb-12 md:mb-20 tracking-tight leading-[0.9] text-left">
+          <motion.h2 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="font-display text-5xl md:text-7xl 2xl:text-8xl 3xl:text-[8rem] font-black uppercase mb-12 md:mb-20 tracking-tight leading-[0.9] text-left"
+          >
             Flexible <br /> Cashback
-          </h2>
+          </motion.h2>
 
           <div className="space-y-4 w-full">
             {features.map((feature, index) => (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
                 onMouseEnter={() => !isMobile && setActiveIndex(index)}
                 onClick={() => isMobile && handleInteraction(index)}
                 className={cn(
@@ -174,13 +185,19 @@ export function InteractiveFeatureSection() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
 
         {/* Right Column: Dynamic Image Display (Desktop Only) */}
-        <div className="relative h-[400px] md:h-[600px] w-full hidden lg:flex items-center justify-center">
+        <motion.div 
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          className="relative h-[400px] md:h-[600px] w-full hidden lg:flex items-center justify-center"
+        >
           {/* Background Shape/Blob */}
           <div className="absolute inset-0 bg-gray-100 rounded-[3rem] -rotate-3 scale-95 opacity-50 transition-all duration-500" />
           
@@ -235,7 +252,7 @@ export function InteractiveFeatureSection() {
                 </div>
              ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

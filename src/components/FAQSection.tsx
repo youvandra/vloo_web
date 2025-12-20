@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const faqs = [
@@ -35,10 +36,23 @@ export function FAQSection() {
       className="w-full min-h-screen lg:h-screen lg:snap-start bg-white text-black flex flex-col items-center justify-center p-4 md:p-8 2xl:p-16 3xl:p-24 relative"
     >
       <div className="w-full max-w-4xl 2xl:max-w-6xl 3xl:max-w-7xl mx-auto">
-        <div className="space-y-0">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-10%" }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.15 } },
+            hidden: {}
+          }}
+          className="space-y-0"
+        >
           {faqs.map((faq, index) => (
-            <div 
+            <motion.div 
               key={index} 
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+              }}
               className="border-b border-gray-200"
             >
               <button
@@ -78,9 +92,9 @@ export function FAQSection() {
                   {faq.answer}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

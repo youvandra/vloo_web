@@ -1,28 +1,27 @@
 "use client";
 
 import { useState } from "react";
-import { useOnScreen } from "@/hooks/useOnScreen";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 export function FeatureSection() {
-  const [ref, isVisible] = useOnScreen({ threshold: 0.3 });
   const [step, setStep] = useState<'withdraw' | 'success'>('withdraw');
 
   return (
     <section 
-      ref={ref} 
       data-theme="light"
       className="min-h-screen lg:h-screen w-full lg:snap-start bg-white text-black flex items-center justify-center p-4 md:p-8 2xl:p-16 3xl:p-24 overflow-hidden relative"
     >
       <div className="w-full max-w-6xl 2xl:max-w-screen-2xl 3xl:max-w-[90vw] grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 2xl:gap-24 3xl:gap-40 items-center">
         
         {/* Left: Phone Mockup */}
-        <div 
-          className={cn(
-            "relative flex justify-center order-2 md:order-1 transition-all duration-1000 transform h-[550px] md:h-[600px] 2xl:h-[800px] 3xl:h-[1200px]",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-          )}
+        <motion.div 
+          initial={{ x: -100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative flex justify-center order-2 md:order-1 h-[550px] md:h-[600px] 2xl:h-[800px] 3xl:h-[1200px]"
         >
           {/* Phone Frame */}
           <div className="relative h-full aspect-[1/2] bg-white rounded-[2.5rem] md:rounded-[3rem] 2xl:rounded-[4rem] 3xl:rounded-[6rem] border-[8px] 2xl:border-[12px] 3xl:border-[16px] border-gray-900 shadow-2xl overflow-hidden ring-1 ring-white/20">
@@ -120,14 +119,15 @@ export function FeatureSection() {
                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-1/3 h-1 bg-gray-300 rounded-full"></div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right: Content */}
-        <div 
-          className={cn(
-            "space-y-6 2xl:space-y-10 3xl:space-y-16 order-1 md:order-2 text-left transition-all duration-1000 delay-300 transform",
-            isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-20"
-          )}
+        <motion.div 
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          className="space-y-6 2xl:space-y-10 3xl:space-y-16 order-1 md:order-2 text-left"
         >
           <div className="space-y-6 2xl:space-y-10 3xl:space-y-16">
             <h2 className="font-display text-5xl md:text-7xl 2xl:text-8xl 3xl:text-[11rem] font-black leading-[0.9] tracking-tighter uppercase text-black">
@@ -149,14 +149,15 @@ export function FeatureSection() {
               </Button>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Mobile Button (Below Phone Mockup) */}
-        <div 
-          className={cn(
-            "w-full flex justify-center gap-4 flex-wrap order-3 md:hidden transition-all duration-1000 delay-500 transform",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-          )}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+          className="w-full flex justify-center gap-4 flex-wrap order-3 md:hidden"
         >
           <Button className="font-display rounded-[15px] 2xl:rounded-[25px] 3xl:rounded-[40px] bg-black text-white hover:bg-gray-900 px-8 py-6 2xl:px-12 2xl:py-8 3xl:px-20 3xl:py-12 text-base 2xl:text-xl 3xl:text-3xl font-semibold transition-transform hover:scale-105 cursor-pointer">
             App Store
@@ -164,7 +165,7 @@ export function FeatureSection() {
           <Button className="font-display rounded-[15px] 2xl:rounded-[25px] 3xl:rounded-[40px] bg-black text-white hover:bg-gray-900 px-8 py-6 2xl:px-12 2xl:py-8 3xl:px-20 3xl:py-12 text-base 2xl:text-xl 3xl:text-3xl font-semibold transition-transform hover:scale-105 cursor-pointer">
             Play Store
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

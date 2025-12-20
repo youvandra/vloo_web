@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { Bitcoin, Wallet, ArrowRightLeft, ShieldCheck, Zap, Globe, Layers, Coins } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Matter from "matter-js";
-import { motion } from "framer-motion";
 
 // Coin Data with sizes for physics bodies
 const COINS = [
@@ -192,13 +191,7 @@ export function FooterSection() {
       </div>
 
       {/* Marquee Section */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false }}
-        transition={{ duration: 0.6 }}
-        className="w-full overflow-hidden mb-20 relative z-10 mt-32 md:mt-48"
-      >
+      <div className="w-full overflow-hidden mb-20 relative z-10 mt-32 md:mt-48">
         <div className="flex animate-marquee whitespace-nowrap">
           {[...Array(10)].map((_, i) => (
             <div key={i} className="flex items-center mx-4">
@@ -209,18 +202,12 @@ export function FooterSection() {
             </div>
           ))}
         </div>
-      </motion.div>
+      </div>
+      {/* Hold to rain */}
 
       {/* Bottom Footer Content */}
       <div className="max-w-[1800px] mx-auto px-4 md:px-8 2xl:px-16 relative z-10 w-full">
-        <motion.div 
-          ref={footerContentRef} 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 border-t border-black/10 pt-12"
-        >
+        <div ref={footerContentRef} className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 border-t border-black/10 pt-12">
           
           {/* Left Column: Brand & Description */}
           <div className="md:col-span-5 space-y-6">
@@ -259,21 +246,15 @@ export function FooterSection() {
               </ul>
             </div>
           </div>
-        </motion.div>
+        </div>
         
         {/* Copyright / Bottom Bar */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 pt-8 border-t border-black/5 flex flex-col md:flex-row justify-between items-center text-gray-500 text-xs md:text-sm"
-        >
+        <div className="mt-12 pt-8 border-t border-black/5 flex flex-col md:flex-row justify-between items-center text-gray-500 text-xs md:text-sm">
           <p>© 2024 VLOO Inc. All rights reserved.</p>
           <div className="flex gap-4 mt-4 md:mt-0">
             {/* Social icons could go here */}
           </div>
-        </motion.div>
+        </div>
       </div>
     </footer>
   );

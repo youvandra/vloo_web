@@ -2,6 +2,7 @@
 
 import useEmblaCarousel from "embla-carousel-react";
 import { useEffect, useState, useCallback } from "react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { ShieldCheck, Zap, Globe, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -107,15 +108,35 @@ export function CarouselSection() {
     <section data-theme="dark" className="w-full min-h-screen lg:h-screen lg:snap-start bg-black text-white flex flex-col items-center justify-start pt-[15vh] px-4 md:px-8 2xl:px-16 3xl:px-24 overflow-hidden relative">
       
       <div className="text-left md:text-center mb-12 md:mb-24 px-4 z-40 relative">
-        <h2 className="font-display text-5xl md:text-7xl 2xl:text-8xl 3xl:text-[11rem] font-black uppercase mb-4 tracking-tight leading-[0.9]">
-          Why Choose Vloo?
-        </h2>
-        <p className="font-sans text-white/70 text-lg md:text-xl 2xl:text-2xl 3xl:text-4xl max-w-2xl 2xl:max-w-4xl 3xl:max-w-6xl md:mx-auto">
+        <div className="overflow-hidden">
+          <motion.h2 
+            initial={{ y: "100%" }}
+            whileInView={{ y: 0 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="font-display text-5xl md:text-7xl 2xl:text-8xl 3xl:text-[11rem] font-black uppercase mb-4 tracking-tight leading-[0.9]"
+          >
+            Why Choose Vloo?
+          </motion.h2>
+        </div>
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          className="font-sans text-white/70 text-lg md:text-xl 2xl:text-2xl 3xl:text-4xl max-w-2xl 2xl:max-w-4xl 3xl:max-w-6xl md:mx-auto"
+        >
           Discover the features that make us the preferred choice for crypto payments.
-        </p>
+        </motion.p>
       </div>
 
-      <div className="w-full max-w-[1600px] mx-auto px-0 relative">
+      <motion.div 
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-10%" }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+        className="w-full max-w-[1600px] mx-auto px-0 relative"
+      >
         <div className="overflow-visible" ref={emblaRef}>
           <div className="flex touch-pan-y touch-pinch-zoom -ml-4 items-center [perspective:1000px] pt-20 pb-64">
             {allFeatures.map((feature, index) => (
@@ -177,7 +198,7 @@ export function CarouselSection() {
             />
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
