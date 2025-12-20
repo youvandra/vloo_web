@@ -6,6 +6,7 @@ import { InteractiveFeatureSection } from "@/components/InteractiveFeatureSectio
 import { CarouselSection } from "@/components/CarouselSection";
 import { FAQSection } from "@/components/FAQSection";
 import { CTASection } from "@/components/CTASection";
+import { FooterSection } from "@/components/FooterSection";
 
 export default function Home() {
   return (
@@ -55,6 +56,9 @@ export default function Home() {
 
       {/* CTA Section */}
       <CTASection />
+
+      {/* Footer Section */}
+      <FooterSection />
     </main>
   );
 }

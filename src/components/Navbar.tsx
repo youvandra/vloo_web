@@ -30,7 +30,7 @@ export function Navbar() {
     );
 
     // Delay slightly to ensure DOM is ready if needed, though usually fine in useEffect
-    const sections = document.querySelectorAll("section[data-theme]");
+    const sections = document.querySelectorAll("[data-theme]");
     sections.forEach((section) => observer.observe(section));
 
     return () => {
