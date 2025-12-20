@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/Navbar";
 import { HeroCard } from "@/components/HeroCard";
 import { FeatureSection } from "@/components/FeatureSection";
+import { InteractiveFeatureSection } from "@/components/InteractiveFeatureSection";
+import { CarouselSection } from "@/components/CarouselSection";
 
 export default function Home() {
   return (
@@ -9,7 +11,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="min-h-screen lg:h-screen lg:snap-start w-full flex items-center justify-center p-4 md:p-8 2xl:p-16 3xl:p-24 overflow-hidden relative">
+      <section data-theme="light" className="min-h-screen lg:h-screen lg:snap-start w-full bg-white flex items-center justify-center p-4 md:p-8 2xl:p-16 3xl:p-24 overflow-hidden relative">
         <div className="w-full max-w-6xl 2xl:max-w-screen-2xl 3xl:max-w-[90vw] relative transition-all duration-300">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 2xl:gap-24 3xl:gap-40 items-center">
             
@@ -19,12 +21,12 @@ export default function Home() {
             </div>
 
             {/* Mobile: Text Bottom / Desktop: Text Left */}
-            <div className="space-y-6 2xl:space-y-10 3xl:space-y-16 max-w-xl 2xl:max-w-3xl 3xl:max-w-5xl z-10 order-2 md:order-1 text-center md:text-left">
+            <div className="space-y-6 2xl:space-y-10 3xl:space-y-16 max-w-xl 2xl:max-w-3xl 3xl:max-w-5xl z-10 order-2 md:order-1 text-left">
               <h1 className="font-display text-5xl md:text-7xl 2xl:text-8xl 3xl:text-[11rem] font-black leading-[0.9] tracking-tighter uppercase">
                 Payments <br />
                 Made Simple
               </h1>
-              <p className="font-sans text-lg 2xl:text-2xl 3xl:text-4xl font-normal max-w-md 2xl:max-w-2xl 3xl:max-w-4xl leading-relaxed mx-auto md:mx-0">
+              <p className="font-sans text-lg 2xl:text-2xl 3xl:text-4xl font-normal max-w-md 2xl:max-w-2xl 3xl:max-w-4xl leading-relaxed">
                 Get a card that lets you spend crypto like cash.
                 Download our intuitive app to apply and manage your
                 funds effortlessly, anytime.
@@ -39,6 +41,12 @@ export default function Home() {
 
       {/* Feature Section */}
       <FeatureSection />
+
+      {/* Interactive Feature Section */}
+      <InteractiveFeatureSection />
+
+      {/* Carousel Section */}
+      <CarouselSection />
     </main>
   );
 }

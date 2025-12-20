@@ -12,6 +12,7 @@ export function FeatureSection() {
   return (
     <section 
       ref={ref} 
+      data-theme="dark"
       className="min-h-screen lg:h-screen w-full lg:snap-start bg-[#0b1cc4] text-white flex items-center justify-center p-4 md:p-8 2xl:p-16 3xl:p-24 overflow-hidden relative"
     >
       <div className="w-full max-w-6xl 2xl:max-w-screen-2xl 3xl:max-w-[90vw] grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 2xl:gap-24 3xl:gap-40 items-center">
