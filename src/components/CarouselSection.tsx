@@ -142,12 +142,12 @@ export function CarouselSection() {
             {allFeatures.map((feature, index) => (
               <div 
                 key={index} 
-                className="flex-[0_0_90%] md:flex-[0_0_45%] lg:flex-[0_0_30%] min-w-0 pl-4"
+                className="flex-[0_0_80%] md:flex-[0_0_40%] lg:flex-[0_0_27%] min-w-0 pl-4"
               >
                 <div 
                   onClick={() => scrollTo(index)}
                   className={cn(
-                    "relative h-[340px] md:h-[425px] rounded-[2.5rem] p-6 md:p-8 flex flex-col items-center justify-center text-center transition-all duration-500 ease-out cursor-pointer bg-white",
+                    "relative h-[375px] md:h-[470px] rounded-[2.5rem] p-6 md:p-8 flex flex-col items-center justify-center text-center transition-all duration-500 ease-out cursor-pointer bg-white",
                     feature.color,
                     feature.textColor,
                     getCardStyle(index)

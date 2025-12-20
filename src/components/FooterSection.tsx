@@ -250,7 +250,7 @@ export function FooterSection() {
         
         {/* Copyright / Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-black/5 flex flex-col md:flex-row justify-between items-center text-gray-500 text-xs md:text-sm">
-          <p>© 2024 VLOO Inc. All rights reserved.</p>
+          <p>© 2025 VLOO CARDS. All rights reserved.</p>
           <div className="flex gap-4 mt-4 md:mt-0">
             {/* Social icons could go here */}
           </div>

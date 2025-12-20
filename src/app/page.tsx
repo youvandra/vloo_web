@@ -6,6 +6,7 @@ import { CarouselSection } from "@/components/CarouselSection";
 import { FAQSection } from "@/components/FAQSection";
 import { CTASection } from "@/components/CTASection";
 import { FooterSection } from "@/components/FooterSection";
+import { BackToTop } from "@/components/BackToTop";
 
 export default function Home() {
   return (
@@ -32,6 +33,9 @@ export default function Home() {
 
       {/* Footer Section */}
       <FooterSection />
+      
+      {/* Back To Top Button */}
+      <BackToTop />
     </main>
   );
 }
