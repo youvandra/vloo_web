@@ -5,6 +5,7 @@ import { FeatureSection } from "@/components/FeatureSection";
 import { InteractiveFeatureSection } from "@/components/InteractiveFeatureSection";
 import { CarouselSection } from "@/components/CarouselSection";
 import { FAQSection } from "@/components/FAQSection";
+import { CTASection } from "@/components/CTASection";
 
 export default function Home() {
   return (
@@ -51,6 +52,9 @@ export default function Home() {
 
       {/* FAQ Section */}
       <FAQSection />
+
+      {/* CTA Section */}
+      <CTASection />
     </main>
   );
 }
