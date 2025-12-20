@@ -4,6 +4,7 @@ import { HeroCard } from "@/components/HeroCard";
 import { FeatureSection } from "@/components/FeatureSection";
 import { InteractiveFeatureSection } from "@/components/InteractiveFeatureSection";
 import { CarouselSection } from "@/components/CarouselSection";
+import { FAQSection } from "@/components/FAQSection";
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section data-theme="light" className="min-h-screen lg:h-screen lg:snap-start w-full bg-white flex items-center justify-center p-4 md:p-8 2xl:p-16 3xl:p-24 overflow-hidden relative">
+      <section data-theme="dark" className="min-h-screen lg:h-screen lg:snap-start w-full bg-[#0b1cc4] text-white flex items-center justify-center p-4 md:p-8 2xl:p-16 3xl:p-24 overflow-hidden relative">
         <div className="w-full max-w-6xl 2xl:max-w-screen-2xl 3xl:max-w-[90vw] relative transition-all duration-300">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 2xl:gap-24 3xl:gap-40 items-center">
             
@@ -26,12 +27,12 @@ export default function Home() {
                 Payments <br />
                 Made Simple
               </h1>
-              <p className="font-sans text-lg 2xl:text-2xl 3xl:text-4xl font-normal max-w-md 2xl:max-w-2xl 3xl:max-w-4xl leading-relaxed">
+              <p className="font-sans text-lg 2xl:text-2xl 3xl:text-4xl font-normal max-w-md 2xl:max-w-2xl 3xl:max-w-4xl leading-relaxed text-white/90">
                 Get a card that lets you spend crypto like cash.
                 Download our intuitive app to apply and manage your
                 funds effortlessly, anytime.
               </p>
-              <Button className="font-display rounded-[15px] 2xl:rounded-[25px] 3xl:rounded-[40px] bg-black text-white hover:bg-gray-800 px-8 py-6 2xl:px-12 2xl:py-8 3xl:px-20 3xl:py-12 text-base 2xl:text-xl 3xl:text-3xl font-semibold transition-transform hover:scale-105 cursor-pointer">
+              <Button className="font-display rounded-[15px] 2xl:rounded-[25px] 3xl:rounded-[40px] bg-white text-black hover:bg-gray-100 px-8 py-6 2xl:px-12 2xl:py-8 3xl:px-20 3xl:py-12 text-base 2xl:text-xl 3xl:text-3xl font-semibold transition-transform hover:scale-105 cursor-pointer">
                 Download the App
               </Button>
             </div>
@@ -47,6 +48,9 @@ export default function Home() {
 
       {/* Carousel Section */}
       <CarouselSection />
+
+      {/* FAQ Section */}
+      <FAQSection />
     </main>
   );
 }

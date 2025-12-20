@@ -18,8 +18,8 @@ const features = [
     icon: ShieldCheck,
     title: "Secure Wallet",
     description: "Your assets are protected by bank-grade security and advanced encryption protocols.",
-    color: "bg-black",
-    textColor: "text-white",
+    color: "bg-white",
+    textColor: "text-black",
   },
   {
     icon: Globe,
@@ -104,13 +104,13 @@ export function CarouselSection() {
   };
 
   return (
-    <section data-theme="light" className="w-full min-h-screen lg:h-screen lg:snap-start bg-white text-black flex flex-col items-center justify-start pt-[15vh] px-4 md:px-8 2xl:px-16 3xl:px-24 overflow-hidden relative">
+    <section data-theme="dark" className="w-full min-h-screen lg:h-screen lg:snap-start bg-black text-white flex flex-col items-center justify-start pt-[15vh] px-4 md:px-8 2xl:px-16 3xl:px-24 overflow-hidden relative">
       
       <div className="text-left md:text-center mb-12 md:mb-24 px-4 z-40 relative">
         <h2 className="font-display text-5xl md:text-7xl 2xl:text-8xl 3xl:text-[11rem] font-black uppercase mb-4 tracking-tight leading-[0.9]">
           Why Choose Vloo?
         </h2>
-        <p className="font-sans text-gray-500 text-lg md:text-xl 2xl:text-2xl 3xl:text-4xl max-w-2xl 2xl:max-w-4xl 3xl:max-w-6xl md:mx-auto">
+        <p className="font-sans text-white/70 text-lg md:text-xl 2xl:text-2xl 3xl:text-4xl max-w-2xl 2xl:max-w-4xl 3xl:max-w-6xl md:mx-auto">
           Discover the features that make us the preferred choice for crypto payments.
         </p>
       </div>
@@ -171,7 +171,7 @@ export function CarouselSection() {
               onClick={() => scrollTo(index)}
               className={cn(
                 "w-2 h-2 rounded-full transition-all duration-300",
-                index === selectedIndex % features.length ? "bg-black w-6" : "bg-gray-300 hover:bg-gray-400"
+                index === selectedIndex % features.length ? "bg-white w-6" : "bg-white/30 hover:bg-white/50"
               )}
               aria-label={`Go to slide ${index + 1}`}
             />

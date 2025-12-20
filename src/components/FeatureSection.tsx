@@ -12,8 +12,8 @@ export function FeatureSection() {
   return (
     <section 
       ref={ref} 
-      data-theme="dark"
-      className="min-h-screen lg:h-screen w-full lg:snap-start bg-[#0b1cc4] text-white flex items-center justify-center p-4 md:p-8 2xl:p-16 3xl:p-24 overflow-hidden relative"
+      data-theme="light"
+      className="min-h-screen lg:h-screen w-full lg:snap-start bg-white text-black flex items-center justify-center p-4 md:p-8 2xl:p-16 3xl:p-24 overflow-hidden relative"
     >
       <div className="w-full max-w-6xl 2xl:max-w-screen-2xl 3xl:max-w-[90vw] grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 2xl:gap-24 3xl:gap-40 items-center">
         
@@ -130,12 +130,12 @@ export function FeatureSection() {
           )}
         >
           <div className="space-y-6 2xl:space-y-10 3xl:space-y-16">
-            <h2 className="font-display text-5xl md:text-7xl 2xl:text-8xl 3xl:text-[11rem] font-black leading-[0.9] tracking-tighter uppercase text-white">
+            <h2 className="font-display text-5xl md:text-7xl 2xl:text-8xl 3xl:text-[11rem] font-black leading-[0.9] tracking-tighter uppercase text-black">
               Vloo <br/>
               Mobile App
             </h2>
             
-            <p className="font-sans text-lg 2xl:text-2xl 3xl:text-4xl font-normal text-white/80 max-w-md 2xl:max-w-2xl 3xl:max-w-4xl md:mx-0 leading-relaxed">
+            <p className="font-sans text-lg 2xl:text-2xl 3xl:text-4xl font-normal text-gray-500 max-w-md 2xl:max-w-2xl 3xl:max-w-4xl md:mx-0 leading-relaxed">
               Stay connected to your crypto, make payments,
               and manage funds seamlessly with our user-friendly mobile app.
             </p>

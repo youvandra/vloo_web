@@ -71,7 +71,7 @@ export function HeroCard() {
           onPointerLeave={handlePointerUp}
         >
           {/* Main Card */}
-          <div className="relative w-[22.8rem] h-[15.2rem] md:w-[475px] md:h-[19rem] 2xl:w-[712px] 2xl:h-[475px] 3xl:w-[997px] 3xl:h-[665px] bg-[#0b1cc4] rounded-[15px] 2xl:rounded-[40px] 3xl:rounded-[60px] shadow-2xl overflow-hidden border border-white/10 pointer-events-none">
+          <div className="relative w-[22.8rem] h-[15.2rem] md:w-[475px] md:h-[19rem] 2xl:w-[712px] 2xl:h-[475px] 3xl:w-[997px] 3xl:h-[665px] bg-black rounded-[15px] 2xl:rounded-[40px] 3xl:rounded-[60px] shadow-2xl overflow-hidden border border-white/10 pointer-events-none">
             
             {/* Simple Pattern (Top-Left) */}
         <div className="absolute top-0 left-0 w-full h-full z-0 opacity-20 pointer-events-none">
