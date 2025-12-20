@@ -1,10 +1,11 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { X } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export function CTASection() {
   const [showTooltip, setShowTooltip] = useState(true);
@@ -80,12 +81,12 @@ export function CTASection() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
             className="absolute bottom-[20%] right-[5%] md:right-[10%] 2xl:right-[15%] w-[300px] md:w-[400px] 2xl:w-[500px] bg-white text-black rounded-[20px] md:rounded-[30px] p-6 md:p-8 2xl:p-10 shadow-2xl z-20"
           >
-            <button 
-              onClick={() => setShowTooltip(false)}
+            <Link 
+              href="/#placeholder"
               className="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors"
             >
-              <X size={20} />
-            </button>
+              <ArrowUpRight size={30} />
+            </Link>
             <h3 className="font-display font-black text-3xl md:text-4xl 2xl:text-5xl uppercase leading-[0.9] mb-4">
               Crypto<br/>Payments
             </h3>
