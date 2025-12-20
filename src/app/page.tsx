@@ -1,65 +1,44 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Navbar } from "@/components/Navbar";
+import { HeroCard } from "@/components/HeroCard";
+import { FeatureSection } from "@/components/FeatureSection";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="h-screen w-full overflow-y-scroll snap-y snap-mandatory bg-background font-sans text-foreground">
+      <Navbar />
+
+      {/* Hero Section */}
+      <section className="snap-start h-screen w-full flex items-center justify-center p-4 md:p-8 2xl:p-16 3xl:p-24 overflow-hidden relative">
+        <div className="w-full max-w-6xl 2xl:max-w-screen-2xl 3xl:max-w-[90vw] relative transition-all duration-300">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 2xl:gap-24 3xl:gap-40 items-center">
+            
+            {/* Mobile: Card Top / Desktop: Card Right */}
+            <div className="relative h-[300px] md:h-[600px] 2xl:h-[800px] 3xl:h-[1200px] flex items-center justify-center order-1 md:order-2">
+              <HeroCard />
+            </div>
+
+            {/* Mobile: Text Bottom / Desktop: Text Left */}
+            <div className="space-y-6 2xl:space-y-10 3xl:space-y-16 max-w-xl 2xl:max-w-3xl 3xl:max-w-5xl z-10 order-2 md:order-1 text-center md:text-left">
+              <h1 className="font-display text-5xl md:text-7xl 2xl:text-8xl 3xl:text-[11rem] font-black leading-[0.9] tracking-tighter uppercase">
+                Payments <br />
+                Made Simple
+              </h1>
+              <p className="font-sans text-lg 2xl:text-2xl 3xl:text-4xl font-normal max-w-md 2xl:max-w-2xl 3xl:max-w-4xl leading-relaxed mx-auto md:mx-0">
+                Get a card that lets you spend crypto like cash.
+                Download our intuitive app to apply and manage your
+                funds effortlessly, anytime.
+              </p>
+              <Button className="font-display rounded-[15px] 2xl:rounded-[25px] 3xl:rounded-[40px] bg-black text-white hover:bg-gray-800 px-8 py-6 2xl:px-12 2xl:py-8 3xl:px-20 3xl:py-12 text-base 2xl:text-xl 3xl:text-3xl font-semibold transition-transform hover:scale-105 cursor-pointer">
+                Download the App
+              </Button>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Feature Section */}
+      <FeatureSection />
+    </main>
   );
 }
