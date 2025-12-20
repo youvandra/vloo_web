@@ -153,7 +153,7 @@ export function FeatureSection() {
         {/* Mobile Button (Below Phone Mockup) */}
         <div 
           className={cn(
-            "w-full flex justify-center gap-4 order-3 md:hidden transition-all duration-1000 delay-500 transform",
+            "w-full flex justify-center gap-4 flex-wrap order-3 md:hidden transition-all duration-1000 delay-500 transform",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
           )}
         >
