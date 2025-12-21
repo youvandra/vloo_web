@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Bitcoin, Wallet, ArrowRightLeft, ShieldCheck, Zap, Globe, Layers, Coins } from "lucide-react";
+import { Bitcoin, Wallet, ArrowRightLeft, ShieldCheck, Zap, Globe, Layers, Coins, Instagram, Linkedin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Matter from "matter-js";
 
@@ -251,8 +251,58 @@ export function FooterSection() {
         {/* Copyright / Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-black/5 flex flex-col md:flex-row justify-between items-center text-gray-500 text-xs md:text-sm">
           <p>© 2025 VLOO CARDS. All rights reserved.</p>
-          <div className="flex gap-4 mt-4 md:mt-0">
-            {/* Social icons could go here */}
+          <div className="flex gap-6 mt-4 md:mt-0">
+            {/* Instagram */}
+            <a href="#" className="text-gray-400 hover:text-black transition-colors" aria-label="Instagram">
+              <Instagram size={20} />
+            </a>
+            
+            {/* LinkedIn */}
+            <a href="#" className="text-gray-400 hover:text-black transition-colors" aria-label="LinkedIn">
+              <Linkedin size={20} />
+            </a>
+
+            {/* Medium */}
+            <a href="#" className="text-gray-400 hover:text-black transition-colors" aria-label="Medium">
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="20" 
+                height="20" 
+                viewBox="0 0 24 24" 
+                fill="currentColor" 
+                stroke="none"
+              >
+                <path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+              </svg>
+            </a>
+
+            {/* TikTok */}
+            <a href="#" className="text-gray-400 hover:text-black transition-colors" aria-label="TikTok">
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="20" 
+                height="20" 
+                viewBox="0 0 24 24" 
+                fill="currentColor" 
+                stroke="none"
+              >
+                <path d="M12.525.025a.5.5 0 0 1 .5.5c0 1.637.773 2.566 2.25 2.566h.725a.5.5 0 0 1 .5.5v3.1a.5.5 0 0 1-.5.5 4.96 4.96 0 0 0-3.475-1.425v9.125a5.55 5.55 0 1 1-5.55-5.55c.29 0 .575.025.85.075a.5.5 0 0 1 .425.475v3.1a.5.5 0 0 1-.45.5 2.05 2.05 0 1 0 1.625 2.975V.525a.5.5 0 0 1 .5-.5Z"/>
+              </svg>
+            </a>
+
+            {/* X (Twitter) */}
+            <a href="#" className="text-gray-400 hover:text-black transition-colors" aria-label="X">
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="18" 
+                height="18" 
+                viewBox="0 0 24 24" 
+                fill="currentColor" 
+                stroke="none"
+              >
+                <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+              </svg>
+            </a>
           </div>
         </div>
       </div>
