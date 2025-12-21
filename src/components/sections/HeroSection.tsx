@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { HeroCard } from "@/components/HeroCard";
+import { HeroCard } from "@/components/ui/HeroCard";
 
 export function HeroSection() {
   return (

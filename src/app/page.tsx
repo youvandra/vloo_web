@@ -1,12 +1,12 @@
 import { Navbar } from "@/components/Navbar";
-import { HeroSection } from "@/components/HeroSection";
-import { FeatureSection } from "@/components/FeatureSection";
-import { InteractiveFeatureSection } from "@/components/InteractiveFeatureSection";
-import { CarouselSection } from "@/components/CarouselSection";
-import { FAQSection } from "@/components/FAQSection";
-import { CTASection } from "@/components/CTASection";
-import { FooterSection } from "@/components/FooterSection";
-import { BackToTop } from "@/components/BackToTop";
+import { HeroSection } from "@/components/sections/HeroSection";
+import { FeatureSection } from "@/components/sections/FeatureSection";
+import { InteractiveFeatureSection } from "@/components/sections/InteractiveFeatureSection";
+import { CarouselSection } from "@/components/sections/CarouselSection";
+import { FAQSection } from "@/components/sections/FAQSection";
+import { CTASection } from "@/components/sections/CTASection";
+import { FooterSection } from "@/components/sections/FooterSection";
+import { BackToTop } from "@/components/ui/BackToTop";
 
 export default function Home() {
   return (
