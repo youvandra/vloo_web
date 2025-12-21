@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
 
 export function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);

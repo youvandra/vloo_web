@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Bitcoin, Wallet, ArrowRightLeft, ShieldCheck, Zap, Globe, Layers, Coins, Instagram, Linkedin } from "lucide-react";
+import { Bitcoin, Wallet, ArrowRightLeft, Zap, Globe, Layers, Coins, Instagram, Linkedin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Matter from "matter-js";
 
