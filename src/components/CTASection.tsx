@@ -79,18 +79,18 @@ export function CTASection() {
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once: true, margin: "-10%" }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-            className="absolute bottom-[20%] right-[5%] md:right-[10%] 2xl:right-[15%] w-[300px] md:w-[400px] 2xl:w-[500px] bg-white text-black rounded-[20px] md:rounded-[30px] p-6 md:p-8 2xl:p-10 shadow-2xl z-20"
+            className="absolute bottom-[10%] right-[5%] w-[220px] md:bottom-[20%] md:right-[10%] 2xl:right-[15%] md:w-[400px] 2xl:w-[500px] bg-white text-black rounded-[20px] md:rounded-[30px] p-5 md:p-8 2xl:p-10 shadow-2xl z-20"
           >
             <Link 
               href="/#placeholder"
               className="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors"
             >
-              <ArrowUpRight size={30} />
+              <ArrowUpRight size={20} className="w-5 h-5 md:w-8 md:h-8" />
             </Link>
-            <h3 className="font-display font-black text-3xl md:text-4xl 2xl:text-5xl uppercase leading-[0.9] mb-4">
+            <h3 className="font-display font-black text-2xl md:text-4xl 2xl:text-5xl uppercase leading-[0.9] mb-3 md:mb-4">
               Crypto<br/>Payments
             </h3>
-            <p className="font-sans text-gray-600 text-sm md:text-base 2xl:text-xl leading-relaxed">
+            <p className="font-sans text-gray-600 text-xs md:text-base 2xl:text-xl leading-relaxed">
               Install the app now and get a 10% cashback on your first purchase.
             </p>
           </motion.div>
