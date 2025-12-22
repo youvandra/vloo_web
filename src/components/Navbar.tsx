@@ -9,6 +9,7 @@ export function Navbar() {
   // 'dark' means dark navbar (for light bg), 'light' means light navbar (for dark bg)
   // Default to 'dark' because the first section (Hero) is white.
   const [navTheme, setNavTheme] = useState<'light' | 'dark'>('dark'); 
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -38,11 +39,26 @@ export function Navbar() {
     };
   }, []);
 
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 768) setIsOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    window.addEventListener("resize", onResize);
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("keydown", onKey);
+    };
+  }, []);
+
   return (
     <nav className="fixed top-0 left-0 right-0 flex justify-center pt-6 pb-4 z-50 transition-all duration-300 pointer-events-none">
       <div 
         className={cn(
-          "backdrop-blur-md px-4 py-3 md:px-6 2xl:px-10 2xl:py-5 3xl:px-12 3xl:py-6 rounded-full md:rounded-[15px] 2xl:rounded-[25px] flex items-center justify-between md:justify-center gap-4 md:gap-8 2xl:gap-16 3xl:gap-24 shadow-sm transition-all duration-500 w-[90%] md:w-auto pointer-events-auto",
+          "relative backdrop-blur-md px-4 py-3 md:px-6 2xl:px-10 2xl:py-5 3xl:px-12 3xl:py-6 rounded-full md:rounded-[15px] 2xl:rounded-[25px] flex items-center justify-between md:justify-center gap-4 md:gap-8 2xl:gap-16 3xl:gap-24 shadow-sm transition-all duration-500 w-[90%] md:w-auto pointer-events-auto",
           navTheme === "dark" 
             ? "bg-black/95 text-white shadow-black/10" 
             : "bg-white/90 text-black shadow-black/5"
@@ -54,7 +70,13 @@ export function Navbar() {
         
         {/* Mobile Menu Icon */}
         <div className="md:hidden">
-          <Button variant="ghost" size="icon" className={cn("h-8 w-8", navTheme === "dark" ? "text-white hover:bg-white/20" : "text-black hover:bg-black/10")}>
+          <Button
+            variant="ghost"
+            size="icon"
+            aria-expanded={isOpen}
+            onClick={() => setIsOpen((v) => !v)}
+            className={cn("h-8 w-8", navTheme === "dark" ? "text-white hover:bg-white/20" : "text-black hover:bg-black/10")}
+          >
              <span className="sr-only">Menu</span>
              <svg width="24" height="24" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 3C1.22386 3 1 3.22386 1 3.5C1 3.77614 1.22386 4 1.5 4H13.5C13.7761 4 14 3.77614 14 3.5C14 3.22386 13.7761 3 13.5 3H1.5ZM1 7.5C1 7.22386 1.22386 7 1.5 7H13.5C13.7761 7 14 7.22386 14 7.5C14 7.77614 13.7761 8 13.5 8H1.5C1.22386 8 1 7.77614 1 7.5ZM1 11.5C1 11.2239 1.22386 11 1.5 11H13.5C13.7761 11 14 11.2239 14 11.5C14 11.7761 13.7761 12 13.5 12H1.5C1.22386 12 1 11.7761 1 11.5Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path></svg>
           </Button>
@@ -86,6 +108,31 @@ export function Navbar() {
             <Link href="/buy-card">Buy Card</Link>
           </Button>
         </div>
+
+        {isOpen && (
+          <div
+            className={cn(
+              "absolute top-full left-0 right-0 mt-2 rounded-2xl border overflow-hidden md:hidden",
+              navTheme === "dark" ? "bg-black text-white border-white/10" : "bg-white text-black border-black/10"
+            )}
+          >
+            <div className="flex flex-col p-3 gap-2">
+              <Link href="#" className="px-3 py-2 rounded-lg hover:bg-white/10" onClick={() => setIsOpen(false)}>About</Link>
+              <Link href="#" className="px-3 py-2 rounded-lg hover:bg-white/10" onClick={() => setIsOpen(false)}>Benefit to App</Link>
+              <Link href="#" className="px-3 py-2 rounded-lg hover:bg-white/10" onClick={() => setIsOpen(false)}>Start</Link>
+              <Link href="#" className="px-3 py-2 rounded-lg hover:bg-white/10" onClick={() => setIsOpen(false)}>FAQs</Link>
+              <Button
+                asChild
+                className={cn(
+                  "mt-2 rounded-lg px-4 py-3 font-bold w-full",
+                  navTheme === "dark" ? "bg-white text-black hover:bg-gray-200" : "bg-black text-white hover:bg-gray-800"
+                )}
+              >
+                <Link href="/buy-card" onClick={() => setIsOpen(false)}>Buy Card</Link>
+              </Button>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
