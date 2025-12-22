@@ -76,6 +76,15 @@ export function Navbar() {
           <Link href="#" className={cn("transition-colors", navTheme === "dark" ? "hover:text-white" : "hover:text-vloo-blue")}>
             FAQs
           </Link>
+          <Button
+            asChild
+            className={cn(
+              "rounded-full px-6 py-3 font-bold",
+              navTheme === "dark" ? "bg-white text-black hover:bg-gray-200" : "bg-black text-white hover:bg-gray-800"
+            )}
+          >
+            <Link href="/buy-card">Buy Card</Link>
+          </Button>
         </div>
       </div>
     </nav>

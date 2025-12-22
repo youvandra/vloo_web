@@ -55,7 +55,7 @@ export function CarouselSection() {
 
   useEffect(() => {
     if (!emblaApi) return;
-    onSelect();
+    setTimeout(onSelect, 0);
     emblaApi.on("select", onSelect);
     emblaApi.on("reInit", onSelect);
     return () => {

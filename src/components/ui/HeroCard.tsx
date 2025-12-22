@@ -1,34 +1,56 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export function HeroCard() {
+export function HeroCard({ variant = "black", staticOnMobile = false, label = "Personal" }: { variant?: "black" | "white" | "blue", staticOnMobile?: boolean, label?: string }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const angleRef = useRef(0);
   const isDraggingRef = useRef(false);
   const lastClientXRef = useRef(0);
   const rafRef = useRef<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const palette =
+    variant === "white"
+      ? { bg: "bg-white", border: "border-black/10", text: "#0b1cc4" }
+      : variant === "blue"
+      ? { bg: "bg-[#0b1cc4]", border: "border-black/10", text: "#e3d9c2" }
+      : { bg: "bg-black", border: "border-white/10", text: "#e3d9c2" };
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   useEffect(() => {
     const loop = () => {
-      if (!isDraggingRef.current) {
+      if (!isDraggingRef.current && !(isMobile && staticOnMobile)) {
         // Auto-spin: -0.3 degrees per frame (matches roughly 20s per 360deg at 60fps)
         angleRef.current -= 0.3;
       }
       
       if (cardRef.current) {
-        cardRef.current.style.transform = `rotateX(${angleRef.current}deg)`;
+        cardRef.current.style.transform = (isMobile && staticOnMobile) ? "" : `rotateX(${angleRef.current}deg)`;
       }
       
       rafRef.current = requestAnimationFrame(loop);
     };
+
+    if (isMobile && staticOnMobile) {
+      if (cardRef.current) {
+        cardRef.current.style.transform = "";
+      }
+      return;
+    }
 
     rafRef.current = requestAnimationFrame(loop);
 
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
-  }, []);
+  }, [isMobile, staticOnMobile]);
 
   const handlePointerDown = (e: React.PointerEvent) => {
     isDraggingRef.current = true;
@@ -60,25 +82,25 @@ export function HeroCard() {
   return (
     <div className="relative w-full h-full flex items-center justify-center perspective-[1000px]">
       {/* Tilt and Animation Wrapper */}
-      <div className="transform rotate-[70deg] z-20 animate-float preserve-3d">
+      <div className="md:transform md:rotate-[70deg] z-20 md:animate-float preserve-3d">
         <div 
           ref={cardRef}
-          className="preserve-3d cursor-grab touch-none"
-          onPointerDown={handlePointerDown}
-          onPointerMove={handlePointerMove}
-          onPointerUp={handlePointerUp}
-          onPointerCancel={handlePointerUp}
-          onPointerLeave={handlePointerUp}
+          className="preserve-3d md:cursor-grab touch-none"
+          onPointerDown={(e) => { if (isMobile && staticOnMobile) return; handlePointerDown(e); }}
+          onPointerMove={(e) => { if (isMobile && staticOnMobile) return; handlePointerMove(e); }}
+          onPointerUp={(e) => { if (isMobile && staticOnMobile) return; handlePointerUp(e); }}
+          onPointerCancel={(e) => { if (isMobile && staticOnMobile) return; handlePointerUp(e); }}
+          onPointerLeave={(e) => { if (isMobile && staticOnMobile) return; handlePointerUp(e); }}
         >
           {/* Main Card */}
-          <div className="relative w-[22.8rem] h-[15.2rem] md:w-[475px] md:h-[19rem] 2xl:w-[712px] 2xl:h-[475px] 3xl:w-[997px] 3xl:h-[665px] bg-black rounded-[15px] 2xl:rounded-[40px] 3xl:rounded-[60px] shadow-2xl overflow-hidden border border-white/10 pointer-events-none">
+          <div className={`relative w-[22.8rem] h-[15.2rem] md:w-[475px] md:h-[19rem] 2xl:w-[712px] 2xl:h-[475px] 3xl:w-[997px] 3xl:h-[665px] ${palette.bg} rounded-[15px] 2xl:rounded-[40px] 3xl:rounded-[60px] shadow-2xl overflow-hidden border ${palette.border} pointer-events-none`}>
             
             {/* Simple Pattern (Top-Left) */}
         <div className="absolute top-0 left-0 w-full h-full z-0 opacity-20 pointer-events-none">
           <svg width="100%" height="100%">
             <defs>
               <pattern id="grid-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M0 40L40 0H20L0 20M40 40V20L20 40" stroke="#e3d9c2" strokeWidth="2" fill="none"/>
+                <path d="M0 40L40 0H20L0 20M40 40V20L20 40" stroke={palette.text} strokeWidth="2" fill="none"/>
               </pattern>
               <linearGradient id="fade-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="white" stopOpacity="1" />
@@ -102,13 +124,13 @@ export function HeroCard() {
         <div className="absolute -bottom-[20%] -right-[10%] w-[60%] h-[80%] bg-[#d199f9] opacity-[0.1] blur-[60px] rounded-full pointer-events-none"></div>
 
         <div className="absolute top-5 right-5 2xl:top-10 2xl:right-10 3xl:top-16 3xl:right-16 z-30">
-          <span className="font-display text-[#e3d9c2] text-lg md:text-xl 2xl:text-4xl 3xl:text-6xl font-normal tracking-wide">
-            Personal
+          <span style={{ color: palette.text }} className="font-display text-lg md:text-xl 2xl:text-4xl 3xl:text-6xl font-normal tracking-wide">
+            {label}
           </span>
         </div>
         
         <div className="absolute bottom-[-10px] left-4 2xl:bottom-[-15px] 2xl:left-8 3xl:bottom-[-20px] 3xl:left-12 z-30">
-          <h2 className="font-display text-[#e3d9c2] text-[5rem] md:text-[6.5rem] 2xl:text-[10rem] 3xl:text-[14rem] font-black tracking-tighter leading-none select-none whitespace-nowrap">
+          <h2 style={{ color: palette.text }} className="font-display text-[5rem] md:text-[6.5rem] 2xl:text-[10rem] 3xl:text-[14rem] font-black tracking-tighter leading-none select-none whitespace-nowrap">
             VLOO
           </h2>
         </div>

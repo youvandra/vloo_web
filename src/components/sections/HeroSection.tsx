@@ -18,7 +18,9 @@ export function HeroSection() {
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
               className="w-full h-full flex items-center justify-center"
             >
-              <HeroCard />
+              <div className="scale-[0.75] md:scale-100">
+                <HeroCard staticOnMobile />
+              </div>
             </motion.div>
           </div>
 

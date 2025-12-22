@@ -1,11 +1,11 @@
-"use client";
+  "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+  import { useState } from "react";
+  import { motion } from "framer-motion";
+ import { Button } from "@/components/ui/button";
 
-export function FeatureSection() {
-  const [step, setStep] = useState<'withdraw' | 'success'>('withdraw');
+  export function FeatureSection() {
+  const [step, setStep] = useState<'scan' | 'withdraw' | 'success'>('scan');
 
   return (
     <section 
@@ -30,7 +30,45 @@ export function FeatureSection() {
             {/* Screen Content */}
             <div className="w-full h-full bg-white flex flex-col relative overflow-hidden font-sans">
               
-              {step === 'withdraw' ? (
+              {step === 'scan' ? (
+                <>
+                  <div className="p-4 pt-10 2xl:p-9 2xl:pt-18 3xl:p-14 3xl:pt-28 flex items-center gap-3">
+                    <div className="text-base 2xl:text-xl 3xl:text-3xl font-bold text-black">Scan Card</div>
+                  </div>
+                  <div className="flex-1 px-4 2xl:px-9 3xl:px-14 flex flex-col items-center justify-center space-y-6 2xl:space-y-10 3xl:space-y-16">
+                    <div className="relative w-40 h-40 md:w-48 md:h-48 2xl:w-64 2xl:h-64 3xl:w-96 3xl:h-96 flex items-center justify-center">
+                      <motion.div 
+                        className="absolute rounded-full border-2 border-black/10 w-20 h-20 md:w-24 md:h-24 2xl:w-32 2xl:h-32 3xl:w-48 3xl:h-48"
+                        animate={{ scale: [1, 1.6, 2], opacity: [0.6, 0.4, 0] }}
+                        transition={{ repeat: Infinity, duration: 2.2, ease: "easeOut" }}
+                      />
+                      <motion.div 
+                        className="absolute rounded-full border-2 border-black/10 w-28 h-28 md:w-32 md:h-32 2xl:w-44 2xl:h-44 3xl:w-64 3xl:h-64"
+                        animate={{ scale: [1, 1.4, 1.8], opacity: [0.5, 0.35, 0] }}
+                        transition={{ repeat: Infinity, duration: 2.2, ease: "easeOut", delay: 0.3 }}
+                      />
+                      <motion.div 
+                        className="absolute rounded-full border-2 border-black/10 w-36 h-36 md:w-40 md:h-40 2xl:w-52 2xl:h-52 3xl:w-80 3xl:h-80"
+                        animate={{ scale: [1, 1.3, 1.7], opacity: [0.4, 0.3, 0] }}
+                        transition={{ repeat: Infinity, duration: 2.2, ease: "easeOut", delay: 0.6 }}
+                      />
+                      <div className="relative z-10 w-24 h-16 md:w-28 md:h-18 2xl:w-40 2xl:h-24 3xl:w-60 3xl:h-36 bg-black rounded-xl 2xl:rounded-2xl 3xl:rounded-[2rem] flex items-center justify-center shadow-xl">
+                        <span className="font-display text-white text-sm md:text-base 2xl:text-xl 3xl:text-3xl tracking-widest">VLOO</span>
+                      </div>
+                    </div>
+                    <div className="text-center space-y-2">
+                      <div className="text-xs md:text-sm 2xl:text-lg 3xl:text-2xl text-gray-500">Hold your Vloo card near the phone</div>
+                      <div className="text-[10px] md:text-xs 2xl:text-base 3xl:text-xl text-gray-400">NFC scanning will start automatically</div>
+                    </div>
+                    <button 
+                      onClick={() => setStep('withdraw')}
+                      className="w-full bg-black text-white rounded-lg 2xl:rounded-[1.5rem] py-3 2xl:py-5 3xl:py-7 text-[15px] md:text-base 2xl:text-xl 3xl:text-3xl font-bold hover:bg-gray-800 active:scale-[0.98] hover:scale-[1.02] transition-all duration-200 shadow-lg shadow-black/20 cursor-pointer"
+                    >
+                      Tap Card
+                    </button>
+                  </div>
+                </>
+              ) : step === 'withdraw' ? (
                 <>
                   {/* App Header */}
                   <div className="p-4 pt-10 2xl:p-9 2xl:pt-18 3xl:p-14 3xl:pt-28 flex items-center gap-3">
@@ -106,7 +144,7 @@ export function FeatureSection() {
                   </div>
 
                   <button 
-                    onClick={() => setStep('withdraw')}
+                    onClick={() => setStep('scan')}
                     className="w-full mt-auto mb-6 2xl:mb-10 3xl:mb-16 bg-gray-100 text-black rounded-lg 2xl:rounded-[1.5rem] py-3 2xl:py-5 3xl:py-7 text-[15px] md:text-base 2xl:text-xl 3xl:text-3xl font-bold hover:bg-gray-200 transition-colors"
                   >
                     Done

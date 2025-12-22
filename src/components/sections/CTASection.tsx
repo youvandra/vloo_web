@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 export function CTASection() {
-  const [showTooltip, setShowTooltip] = useState(true);
+  const [showTooltip] = useState(true);
 
   return (
     <section 

@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Bitcoin, Wallet, ArrowRightLeft, Zap, Globe, Layers, Coins, Instagram, Linkedin } from "lucide-react";
-import { cn } from "@/lib/utils";
 import Matter from "matter-js";
 
 // Coin Data with sizes for physics bodies
@@ -45,12 +44,9 @@ export function FooterSection() {
 
     // 1. Setup Matter.js Engine
     const Engine = Matter.Engine,
-          Render = Matter.Render,
-          World = Matter.World,
           Bodies = Matter.Bodies,
           Runner = Matter.Runner,
-          Composite = Matter.Composite,
-          Events = Matter.Events;
+          Composite = Matter.Composite;
 
     const engine = Engine.create();
     engineRef.current = engine;
