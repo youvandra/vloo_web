@@ -79,7 +79,10 @@ export default function BuyCardPage() {
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
               className="flex items-center justify-between gap-6"
             >
-              <div className="text-3xl 2xl:text-5xl font-black tracking-tight">$29</div>
+              <div className="text-3xl 2xl:text-5xl font-black tracking-tight flex items-baseline gap-2">
+                <span>$29</span>
+                <span className="text-sm 2xl:text-base font-sans font-normal text-gray-500">/ card</span>
+              </div>
               <Button className="rounded-full border border-black bg-white text-black hover:bg-black/5 px-10 2xl:px-12 py-6 text-base font-semibold">
                 <ShoppingCart className="mr-2 h-5 w-5" />
                 Add to Cart
