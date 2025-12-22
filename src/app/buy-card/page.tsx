@@ -10,6 +10,25 @@ import { ShoppingCart } from "lucide-react";
 export default function BuyCardPage() {
   const [variant, setVariant] = useState<"black" | "blue">("blue");
   const [cardType, setCardType] = useState<"Personal" | "Gift" | "Business">("Personal");
+  type CartItemStored = { variant: "black" | "blue"; cardType: "Personal" | "Gift" | "Business"; price?: number; qty?: number };
+  const addToCart = () => {
+    try {
+      const existing = JSON.parse(localStorage.getItem("cartItems") || "[]");
+      const arr: CartItemStored[] = Array.isArray(existing) ? existing : [];
+      const idx = arr.findIndex((it: CartItemStored) => it.variant === variant && it.cardType === cardType);
+      if (idx >= 0) {
+        const it = arr[idx];
+        arr[idx] = { ...it, qty: (it.qty || 1) + 1 };
+      } else {
+        arr.push({ variant, cardType, price: 29, qty: 1 });
+      }
+      localStorage.setItem("cartItems", JSON.stringify(arr));
+      window.dispatchEvent(new Event("cart:updated"));
+    } catch {
+      localStorage.setItem("cartItems", JSON.stringify([{ variant, cardType, price: 29, qty: 1 }]));
+      window.dispatchEvent(new Event("cart:updated"));
+    }
+  };
   return (
     <main className="w-full bg-white text-black min-h-screen">
       <Navbar showCart />
@@ -83,7 +102,7 @@ export default function BuyCardPage() {
                 <span>$29</span>
                 <span className="text-sm 2xl:text-base font-sans font-normal text-gray-500">/ card</span>
               </div>
-              <Button className="rounded-full border border-black bg-white text-black hover:bg-black/5 px-10 2xl:px-12 py-6 text-base font-semibold">
+              <Button onClick={addToCart} className="rounded-full border border-black bg-white text-black hover:bg-black/5 px-10 2xl:px-12 py-6 text-base font-semibold">
                 <ShoppingCart className="mr-2 h-5 w-5" />
                 Add to Cart
               </Button>

@@ -11,6 +11,8 @@ export function Navbar({ showCart = false }: { showCart?: boolean }) {
   // Default to 'dark' because the first section (Hero) is white.
   const [navTheme, setNavTheme] = useState<'light' | 'dark'>('dark'); 
   const [isOpen, setIsOpen] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
+  type CartItemStored = { qty?: number };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -55,6 +57,29 @@ export function Navbar({ showCart = false }: { showCart?: boolean }) {
     };
   }, []);
 
+  useEffect(() => {
+    const updateCart = () => {
+      try {
+        const items = JSON.parse(localStorage.getItem("cartItems") || "[]");
+        if (Array.isArray(items)) {
+          setCartCount(items.reduce((sum: number, it: CartItemStored) => sum + (it?.qty ?? 1), 0));
+        } else {
+          setCartCount(0);
+        }
+      } catch {
+        setCartCount(0);
+      }
+    };
+    updateCart();
+    const onCartUpdated = () => updateCart();
+    window.addEventListener("cart:updated", onCartUpdated as EventListener);
+    window.addEventListener("storage", onCartUpdated as EventListener);
+    return () => {
+      window.removeEventListener("cart:updated", onCartUpdated as EventListener);
+      window.removeEventListener("storage", onCartUpdated as EventListener);
+    };
+  }, []);
+
   return (
     <nav className="fixed top-0 left-0 right-0 flex justify-center pt-6 pb-4 z-50 transition-all duration-300 pointer-events-none">
       <div 
@@ -76,11 +101,17 @@ export function Navbar({ showCart = false }: { showCart?: boolean }) {
               size="icon"
               aria-label="Cart"
               className={cn(
-                "h-8 w-8 rounded-full",
-                navTheme === "dark" ? "text-white bg-white/20 hover:bg-white/30" : "text-black bg-black/10 hover:bg-black/20"
+                "relative h-8 w-8 rounded-full bg-white text-black hover:bg-gray-100"
               )}
             >
-              <ShoppingCart className="h-5 w-5" />
+              <Link href="/cart" aria-label="Cart" className="relative inline-flex items-center justify-center w-full h-full">
+                <ShoppingCart className="h-5 w-5" />
+              </Link>
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-[4px] rounded-full bg-[#0b1cc4] text-white text-[10px] leading-[18px] text-center font-bold">
+                  {cartCount}
+                </span>
+              )}
             </Button>
           )}
           <Button
@@ -113,13 +144,21 @@ export function Navbar({ showCart = false }: { showCart?: boolean }) {
           </Link>
           {showCart ? (
             <Button
+              asChild
               className={cn(
                 "rounded-full px-8 2xl:px-10 py-3 font-bold",
                 navTheme === "dark" ? "bg-white text-black hover:bg-gray-200" : "bg-black text-white hover:bg-gray-800"
               )}
             >
-              <ShoppingCart className="mr-2 h-5 w-5" />
-              Cart
+              <Link href="/cart" className="relative flex items-center">
+                <ShoppingCart className="mr-2 h-5 w-5" />
+                Cart
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-2 min-w-[18px] h-[18px] px-[4px] rounded-full bg-[#0b1cc4] text-white text-[10px] leading-[18px] text-center font-bold">
+                    {cartCount}
+                  </span>
+                )}
+              </Link>
             </Button>
           ) : (
             <Button
@@ -143,7 +182,7 @@ export function Navbar({ showCart = false }: { showCart?: boolean }) {
           >
             <div className="flex flex-col p-3 gap-2">
               {showCart && (
-                <Link href="#" className="px-3 py-2 rounded-lg hover:bg-white/10 flex items-center gap-2" onClick={() => setIsOpen(false)}>
+                <Link href="/cart" className="px-3 py-2 rounded-lg hover:bg-white/10 flex items-center gap-2" onClick={() => setIsOpen(false)}>
                   <ShoppingCart className="h-4 w-4" />
                   Cart
                 </Link>
