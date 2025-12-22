@@ -4,8 +4,9 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { ShoppingCart } from "lucide-react";
 
-export function Navbar() {
+export function Navbar({ showCart = false }: { showCart?: boolean }) {
   // 'dark' means dark navbar (for light bg), 'light' means light navbar (for dark bg)
   // Default to 'dark' because the first section (Hero) is white.
   const [navTheme, setNavTheme] = useState<'light' | 'dark'>('dark'); 
@@ -68,8 +69,20 @@ export function Navbar() {
           VLOO
         </Link>
         
-        {/* Mobile Menu Icon */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center gap-2">
+          {showCart && (
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="Cart"
+              className={cn(
+                "h-8 w-8 rounded-full",
+                navTheme === "dark" ? "text-white bg-white/20 hover:bg-white/30" : "text-black bg-black/10 hover:bg-black/20"
+              )}
+            >
+              <ShoppingCart className="h-5 w-5" />
+            </Button>
+          )}
           <Button
             variant="ghost"
             size="icon"
@@ -98,15 +111,27 @@ export function Navbar() {
           <Link href="#" className={cn("transition-colors", navTheme === "dark" ? "hover:text-white" : "hover:text-vloo-blue")}>
             FAQs
           </Link>
-          <Button
-            asChild
-            className={cn(
-              "rounded-full px-6 py-3 font-bold",
-              navTheme === "dark" ? "bg-white text-black hover:bg-gray-200" : "bg-black text-white hover:bg-gray-800"
-            )}
-          >
-            <Link href="/buy-card">Buy Card</Link>
-          </Button>
+          {showCart ? (
+            <Button
+              className={cn(
+                "rounded-full px-8 2xl:px-10 py-3 font-bold",
+                navTheme === "dark" ? "bg-white text-black hover:bg-gray-200" : "bg-black text-white hover:bg-gray-800"
+              )}
+            >
+              <ShoppingCart className="mr-2 h-5 w-5" />
+              Cart
+            </Button>
+          ) : (
+            <Button
+              asChild
+              className={cn(
+                "rounded-full px-6 py-3 font-bold",
+                navTheme === "dark" ? "bg-white text-black hover:bg-gray-200" : "bg-black text-white hover:bg-gray-800"
+              )}
+            >
+              <Link href="/buy-card">Buy Card</Link>
+            </Button>
+          )}
         </div>
 
         {isOpen && (
@@ -117,19 +142,27 @@ export function Navbar() {
             )}
           >
             <div className="flex flex-col p-3 gap-2">
+              {showCart && (
+                <Link href="#" className="px-3 py-2 rounded-lg hover:bg-white/10 flex items-center gap-2" onClick={() => setIsOpen(false)}>
+                  <ShoppingCart className="h-4 w-4" />
+                  Cart
+                </Link>
+              )}
               <Link href="#" className="px-3 py-2 rounded-lg hover:bg-white/10" onClick={() => setIsOpen(false)}>About</Link>
               <Link href="#" className="px-3 py-2 rounded-lg hover:bg-white/10" onClick={() => setIsOpen(false)}>Benefit to App</Link>
               <Link href="#" className="px-3 py-2 rounded-lg hover:bg-white/10" onClick={() => setIsOpen(false)}>Start</Link>
               <Link href="#" className="px-3 py-2 rounded-lg hover:bg-white/10" onClick={() => setIsOpen(false)}>FAQs</Link>
-              <Button
-                asChild
-                className={cn(
-                  "mt-2 rounded-lg px-4 py-3 font-bold w-full",
-                  navTheme === "dark" ? "bg-white text-black hover:bg-gray-200" : "bg-black text-white hover:bg-gray-800"
-                )}
-              >
-                <Link href="/buy-card" onClick={() => setIsOpen(false)}>Buy Card</Link>
-              </Button>
+              {!showCart && (
+                <Button
+                  asChild
+                  className={cn(
+                    "mt-2 rounded-lg px-4 py-3 font-bold w-full",
+                    navTheme === "dark" ? "bg-white text-black hover:bg-gray-200" : "bg-black text-white hover:bg-gray-800"
+                  )}
+                >
+                  <Link href="/buy-card" onClick={() => setIsOpen(false)}>Buy Card</Link>
+                </Button>
+              )}
             </div>
           </div>
         )}

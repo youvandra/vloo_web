@@ -5,13 +5,14 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { HeroCard } from "@/components/ui/HeroCard";
 import { motion } from "framer-motion";
+import { ShoppingCart } from "lucide-react";
 
 export default function BuyCardPage() {
-  const [variant, setVariant] = useState<"black" | "blue">("black");
+  const [variant, setVariant] = useState<"black" | "blue">("blue");
   const [cardType, setCardType] = useState<"Personal" | "Gift" | "Business">("Personal");
   return (
     <main className="w-full bg-white text-black min-h-screen">
-      <Navbar />
+      <Navbar showCart />
       <section className="w-full min-h-screen flex items-start md:items-center justify-center pt-2 md:pt-28 pb-6 md:pb-20 px-4 md:px-8 2xl:px-16">
         <div className="w-full max-w-6xl 2xl:max-w-screen-2xl 3xl:max-w-[90vw] relative transition-all duration-300">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 2xl:gap-24 3xl:gap-40 items-start">
@@ -79,8 +80,9 @@ export default function BuyCardPage() {
               className="flex items-center justify-between gap-6"
             >
               <div className="text-3xl 2xl:text-5xl font-black tracking-tight">$29</div>
-              <Button className="rounded-full bg-black text-white hover:bg-gray-900 px-8 py-6 text-base font-bold">
-                Buy Card
+              <Button className="rounded-full border border-black bg-white text-black hover:bg-black/5 px-10 2xl:px-12 py-6 text-base font-semibold">
+                <ShoppingCart className="mr-2 h-5 w-5" />
+                Add to Cart
               </Button>
             </motion.div>
             <div className="text-xs font-sans text-gray-500">Includes activation and standard delivery</div>
