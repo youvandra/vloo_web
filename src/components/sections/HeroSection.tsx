@@ -13,9 +13,9 @@ export function HeroSection() {
           {/* Mobile: Card Top / Desktop: Card Right */}
           <div className="relative h-[300px] md:h-[600px] 2xl:h-[800px] 3xl:h-[1200px] flex items-center justify-center order-1 md:order-2">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
               className="w-full h-full flex items-center justify-center"
             >
               <div className="scale-[0.75] md:scale-100">
@@ -41,7 +41,7 @@ export function HeroSection() {
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
               className="font-sans text-lg 2xl:text-2xl 3xl:text-4xl font-normal max-w-md 2xl:max-w-2xl 3xl:max-w-4xl leading-relaxed text-white/90"
             >
               Get a card that lets you spend crypto like cash.
@@ -52,7 +52,7 @@ export function HeroSection() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
             >
               <Button className="font-display rounded-[15px] 2xl:rounded-[25px] 3xl:rounded-[40px] bg-white text-black hover:bg-gray-100 px-8 py-6 2xl:px-12 2xl:py-8 3xl:px-20 3xl:py-12 text-base 2xl:text-xl 3xl:text-3xl font-semibold transition-transform hover:scale-105 cursor-pointer">
                 Download the App
