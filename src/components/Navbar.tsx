@@ -95,25 +95,23 @@ export function Navbar({ showCart = false }: { showCart?: boolean }) {
         </Link>
         
         <div className="md:hidden flex items-center gap-2">
-          {showCart && (
-            <Button
-              variant="ghost"
-              size="icon"
-              aria-label="Cart"
-              className={cn(
-                "relative h-8 w-8 rounded-full bg-white text-black hover:bg-gray-100"
-              )}
-            >
-              <Link href="/cart" aria-label="Cart" className="relative inline-flex items-center justify-center w-full h-full">
-                <ShoppingCart className="h-5 w-5" />
-              </Link>
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-[4px] rounded-full bg-[#0b1cc4] text-white text-[10px] leading-[18px] text-center font-bold">
-                  {cartCount}
-                </span>
-              )}
-            </Button>
-          )}
+          <Button
+            variant="ghost"
+            size="icon"
+            aria-label="Cart"
+            className={cn(
+              "relative h-8 w-8 rounded-full bg-white text-black hover:bg-gray-100"
+            )}
+          >
+            <Link href="/cart" aria-label="Cart" className="relative inline-flex items-center justify-center w-full h-full">
+              <ShoppingCart className="h-5 w-5" />
+            </Link>
+            {cartCount > 0 && (
+              <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-[4px] rounded-full bg-[#0b1cc4] text-white text-[10px] leading-[18px] text-center font-bold pointer-events-none">
+                {cartCount}
+              </span>
+            )}
+          </Button>
           <Button
             variant="ghost"
             size="icon"
@@ -142,25 +140,7 @@ export function Navbar({ showCart = false }: { showCart?: boolean }) {
           <Link href="#" className={cn("transition-colors", navTheme === "dark" ? "hover:text-white" : "hover:text-vloo-blue")}>
             FAQs
           </Link>
-          {showCart ? (
-            <Button
-              asChild
-              className={cn(
-                "rounded-full px-8 2xl:px-10 py-3 font-bold",
-                navTheme === "dark" ? "bg-white text-black hover:bg-gray-200" : "bg-black text-white hover:bg-gray-800"
-              )}
-            >
-              <Link href="/cart" className="relative flex items-center">
-                <ShoppingCart className="mr-2 h-5 w-5" />
-                Cart
-                {cartCount > 0 && (
-                  <span className="absolute -top-1 -right-2 min-w-[18px] h-[18px] px-[4px] rounded-full bg-[#0b1cc4] text-white text-[10px] leading-[18px] text-center font-bold">
-                    {cartCount}
-                  </span>
-                )}
-              </Link>
-            </Button>
-          ) : (
+          <div className="flex items-center gap-4">
             <Button
               asChild
               className={cn(
@@ -170,7 +150,25 @@ export function Navbar({ showCart = false }: { showCart?: boolean }) {
             >
               <Link href="/buy-card">Buy Card</Link>
             </Button>
-          )}
+            <Button
+              variant="ghost"
+              size="icon"
+              asChild
+              className={cn(
+                "relative h-10 w-10 rounded-full",
+                navTheme === "dark" ? "text-white hover:bg-white/20" : "text-black hover:bg-black/10"
+              )}
+            >
+              <Link href="/cart" aria-label="Cart">
+                <ShoppingCart className="h-6 w-6" />
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-[4px] rounded-full bg-[#0b1cc4] text-white text-[10px] leading-[18px] text-center font-bold pointer-events-none">
+                    {cartCount}
+                  </span>
+                )}
+              </Link>
+            </Button>
+          </div>
         </div>
 
         {isOpen && (
@@ -181,27 +179,23 @@ export function Navbar({ showCart = false }: { showCart?: boolean }) {
             )}
           >
             <div className="flex flex-col p-3 gap-2">
-              {showCart && (
-                <Link href="/cart" className="px-3 py-2 rounded-lg hover:bg-white/10 flex items-center gap-2" onClick={() => setIsOpen(false)}>
-                  <ShoppingCart className="h-4 w-4" />
-                  Cart
-                </Link>
-              )}
+              <Link href="/cart" className="px-3 py-2 rounded-lg hover:bg-white/10 flex items-center gap-2" onClick={() => setIsOpen(false)}>
+                <ShoppingCart className="h-4 w-4" />
+                Cart
+              </Link>
               <Link href="#" className="px-3 py-2 rounded-lg hover:bg-white/10" onClick={() => setIsOpen(false)}>About</Link>
               <Link href="#" className="px-3 py-2 rounded-lg hover:bg-white/10" onClick={() => setIsOpen(false)}>Benefit to App</Link>
               <Link href="#" className="px-3 py-2 rounded-lg hover:bg-white/10" onClick={() => setIsOpen(false)}>Start</Link>
               <Link href="#" className="px-3 py-2 rounded-lg hover:bg-white/10" onClick={() => setIsOpen(false)}>FAQs</Link>
-              {!showCart && (
-                <Button
-                  asChild
-                  className={cn(
-                    "mt-2 rounded-lg px-4 py-3 font-bold w-full",
-                    navTheme === "dark" ? "bg-white text-black hover:bg-gray-200" : "bg-black text-white hover:bg-gray-800"
-                  )}
-                >
-                  <Link href="/buy-card" onClick={() => setIsOpen(false)}>Buy Card</Link>
-                </Button>
-              )}
+              <Button
+                asChild
+                className={cn(
+                  "mt-2 rounded-lg px-4 py-3 font-bold w-full",
+                  navTheme === "dark" ? "bg-white text-black hover:bg-gray-200" : "bg-black text-white hover:bg-gray-800"
+                )}
+              >
+                <Link href="/buy-card" onClick={() => setIsOpen(false)}>Buy Card</Link>
+              </Button>
             </div>
           </div>
         )}
