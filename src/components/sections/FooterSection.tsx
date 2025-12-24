@@ -236,8 +236,8 @@ export function FooterSection() {
             <div className="space-y-4">
               <h4 className="font-sans text-black font-semibold">Consent</h4>
               <ul className="space-y-2 text-gray-500 text-sm">
-                <li><a href="#" className="hover:text-black transition-colors">Terms</a></li>
-                <li><a href="#" className="hover:text-black transition-colors">Privacy</a></li>
+                <li><a href="/terms" className="hover:text-black transition-colors">Terms</a></li>
+                <li><a href="/privacy" className="hover:text-black transition-colors">Privacy</a></li>
                 <li><a href="#" className="hover:text-black transition-colors">Cookies</a></li>
               </ul>
             </div>

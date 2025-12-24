@@ -6,15 +6,17 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ShoppingCart } from "lucide-react";
 
-export function Navbar({ showCart = false }: { showCart?: boolean }) {
+export function Navbar({ showCart = false, theme }: { showCart?: boolean; theme?: 'light' | 'dark' }) {
   // 'dark' means dark navbar (for light bg), 'light' means light navbar (for dark bg)
   // Default to 'dark' because the first section (Hero) is white.
-  const [navTheme, setNavTheme] = useState<'light' | 'dark'>('dark'); 
+  const [navTheme, setNavTheme] = useState<'light' | 'dark'>(theme || 'dark'); 
   const [isOpen, setIsOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
   type CartItemStored = { qty?: number };
 
   useEffect(() => {
+    if (theme) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
