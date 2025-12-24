@@ -81,16 +81,16 @@ export function CTASection() {
             className="absolute bottom-[10%] right-[5%] w-[220px] md:bottom-[20%] md:right-[10%] 2xl:right-[15%] md:w-[400px] 2xl:w-[500px] bg-white text-black rounded-[20px] md:rounded-[30px] p-5 md:p-8 2xl:p-10 shadow-2xl z-20"
           >
             <Link 
-              href="/#placeholder"
+              href="/buy-card"
               className="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors"
             >
               <ArrowUpRight size={20} className="w-5 h-5 md:w-8 md:h-8" />
             </Link>
             <h3 className="font-display font-black text-2xl md:text-4xl 2xl:text-5xl uppercase leading-[0.9] mb-3 md:mb-4">
-              Crypto<br/>Payments
+              Assigned <br/>Access
             </h3>
             <p className="font-sans text-gray-600 text-xs md:text-base 2xl:text-xl leading-relaxed">
-              Install the app now and get a 10% cashback on your first purchase.
+              Get a card to assign crypto access. One card, long term control.
             </p>
           </motion.div>
         )}

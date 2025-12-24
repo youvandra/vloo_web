@@ -43,8 +43,8 @@ const beVietnamPro = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "VLOO - Payments Made Simple",
-  description: "Get a card that lets you spend crypto like cash.",
+  title: "VLOO - Access, designed for the right time.",
+  description: "VLOO lets you assign ownership without forcing timing. Create access today — let it be claimed when the moment is right.",
 };
 
 export default function RootLayout({

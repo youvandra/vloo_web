@@ -168,13 +168,20 @@
         >
           <div className="space-y-6 2xl:space-y-10 3xl:space-y-16">
             <h2 className="font-display text-5xl md:text-7xl 2xl:text-8xl 3xl:text-[11rem] font-black leading-[0.9] tracking-tighter uppercase text-black">
-              Vloo <br/>
-              Mobile App
+              Claim <br/>
+              when ready.
             </h2>
             
             <p className="font-sans text-lg 2xl:text-2xl 3xl:text-4xl font-normal text-gray-500 max-w-md 2xl:max-w-2xl 3xl:max-w-4xl md:mx-0 leading-relaxed">
-              Stay connected to your crypto, make payments,
-              and manage funds seamlessly with our user-friendly mobile app.
+              VLOO is built for situations where access should not be immediate,
+              but certainty still matters.
+              <br/><br/>
+              Tap the card to view assigned crypto funds.
+              Unlock access only when conditions are met, such as time, intent, or trust.
+              <br/><br/>
+              No rushed setup.
+              No financial noise.
+              Just a clear transition of ownership.
             </p>
 
             <div className="hidden md:flex flex-col sm:flex-row gap-4 2xl:gap-8 3xl:gap-12 justify-start">

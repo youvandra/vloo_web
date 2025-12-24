@@ -33,8 +33,8 @@ export function HeroSection() {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
                 className="font-display text-5xl md:text-7xl 2xl:text-8xl 3xl:text-[11rem] font-black leading-[0.9] tracking-tighter uppercase"
               >
-                Payments <br />
-                Made Simple
+                Access <br />
+                when ready
               </motion.h1>
             </div>
             
@@ -44,9 +44,9 @@ export function HeroSection() {
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
               className="font-sans text-lg 2xl:text-2xl 3xl:text-4xl font-normal max-w-md 2xl:max-w-2xl 3xl:max-w-4xl leading-relaxed text-white/90"
             >
-              Get a card that lets you spend crypto like cash.
-              Download our intuitive app to apply and manage your
-              funds effortlessly, anytime.
+              VLOO lets you give access to crypto funds without forcing them to be claimed now.
+              <br />
+              Create a wallet, fund it, and assign who can claim it later using a physical card.
             </motion.p>
             
             <motion.div
@@ -55,7 +55,7 @@ export function HeroSection() {
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
             >
               <Button className="font-display rounded-[15px] 2xl:rounded-[25px] 3xl:rounded-[40px] bg-white text-black hover:bg-gray-100 px-8 py-6 2xl:px-12 2xl:py-8 3xl:px-20 3xl:py-12 text-base 2xl:text-xl 3xl:text-3xl font-semibold transition-transform hover:scale-105 cursor-pointer">
-                Download the App
+                How it works?
               </Button>
             </motion.div>
           </div>

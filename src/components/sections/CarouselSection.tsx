@@ -10,29 +10,29 @@ import { Button } from "@/components/ui/button";
 const features = [
   {
     icon: Zap,
-    title: "Instant Transfers",
-    description: "Send and receive funds in seconds. No delays, no hidden fees. Experience the speed of modern finance.",
+    title: "Long-term compensation.",
+    description: "Assign value today. Let it unlock through time, milestones, or trust without legal overhead or financial friction.",
     color: "bg-pale-violet",
     textColor: "text-black",
   },
   {
     icon: ShieldCheck,
-    title: "Secure Wallet",
-    description: "Your assets are protected by bank-grade security and advanced encryption protocols.",
+    title: "Quiet inheritance",
+    description: "No paperwork. No frozen accounts. Just access that waits patiently for the next chapter.",
     color: "bg-white",
     textColor: "text-black",
   },
   {
     icon: Globe,
-    title: "Global Access",
-    description: "Use your card anywhere in the world. Accepted at millions of locations globally.",
+    title: "Deferred rewards",
+    description: "Bonuses, grants, or promises — secured now, claimed later, without pressure.",
     color: "bg-vloo-blue",
     textColor: "text-white",
   },
   {
     icon: Clock,
-    title: "24/7 Support",
-    description: "Our dedicated support team is available around the clock to assist you with any issues.",
+    title: "Intergenerational transfer",
+    description: "Assets assigned today can move across generations. Access stays secure until the next holder is ready to receive it.",
     color: "bg-bone",
     textColor: "text-black",
   },
@@ -116,7 +116,7 @@ export function CarouselSection() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="font-display text-5xl md:text-7xl 2xl:text-8xl 3xl:text-[11rem] font-black uppercase mb-4 tracking-tight leading-[0.9]"
           >
-            Why Choose Vloo?
+            Built for purpose
           </motion.h2>
         </div>
         <motion.p 
@@ -126,7 +126,7 @@ export function CarouselSection() {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           className="font-sans text-white/70 text-lg md:text-xl 2xl:text-2xl 3xl:text-4xl max-w-2xl 2xl:max-w-4xl 3xl:max-w-6xl md:mx-auto"
         >
-          Discover the features that make us the preferred choice for crypto payments.
+          VLOO adapts to real-world needs, not predefined boxes.
         </motion.p>
       </div>
 

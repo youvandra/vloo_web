@@ -6,20 +6,24 @@ import { cn } from "@/lib/utils";
 
 const faqs = [
   {
-    question: "What's the process for obtaining the card?",
-    answer: "To obtain the card, simply download our app, sign up for an account, and complete the verification process. Once verified, you can order your physical card directly from the dashboard, and it will be shipped to your registered address."
+    question: "Is VLOO only for gifts?",
+    answer: "No. VLOO is for any situation where ownership and timing shouldn’t happen at the same moment."
   },
   {
-    question: "Are there any restrictions on where I can use the card?",
-    answer: "Our card is accepted worldwide wherever major credit cards are accepted. However, there might be restrictions in certain countries due to local regulations. Please check our terms of service for a full list of supported regions."
+    question: "Is VLOO a wallet or a bank?",
+    answer: "Neither. VLOO never holds funds. It only defines how access is revealed."
   },
   {
-    question: "Can I track my spending in the app?",
-    answer: "Yes, the app lets you track your spending in real time. You can view transaction details, set limits, and receive notifications for every payment made. This helps you manage your finances easily and securely."
+    question: "Can companies use VLOO?",
+    answer: "Yes. VLOO works for compensation, bonuses, and long-term incentives."
   },
   {
-    question: "How can I monitor and manage my spending within the app?",
-    answer: "The app provides a comprehensive dashboard where you can categorize expenses, set monthly budgets, and view analytics of your spending habits. You can also freeze your card instantly if needed."
+    question: "What happens if VLOO disappears?",
+    answer: "Nothing happens to your assets. They live on-chain, independent of the platform."
+  },
+  {
+    question: "Do receivers need crypto knowledge?",
+    answer: "No. Understanding can come later. Access will wait."
   }
 ];
 

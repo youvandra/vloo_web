@@ -8,22 +8,22 @@ import { CreditCard, RefreshCw, ShieldCheck, ChevronDown } from "lucide-react";
 const features = [
   {
     icon: CreditCard,
-    title: "Instant Card Access",
-    description: "Apply and get your card ready to use in minutes. Start spending right away, no delays.",
+    title: "Timing is a feature",
+    description: "Immediate access is not always the right access. VLOO lets value wait without losing certainty.",
     cardColor: "bg-[#FFE14D]", // Yellow from screenshot
     textColor: "text-black",
   },
   {
     icon: RefreshCw,
-    title: "Cashback Rewards",
-    description: "Earn 5% cashback on every purchase, online or in-store. Save more as you spend smarter.",
+    title: "Ownership without custody",
+    description: "No banks. No platforms holding assets. VLOO never controls funds. Only access conditions.",
     cardColor: "bg-white",
     textColor: "text-black",
   },
   {
     icon: ShieldCheck,
-    title: "Secure Transactions Always",
-    description: "Every payment is protected with bank-level encryption and advanced security protocols.",
+    title: "Built for intent, not categories.",
+    description: "Gift, salary, inheritance, reward. VLOO does not care why. It ensures access happens correctly.",
     cardColor: "bg-black",
     textColor: "text-white",
   },
@@ -79,7 +79,7 @@ export function InteractiveFeatureSection() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="font-display text-5xl md:text-7xl 2xl:text-8xl 3xl:text-[8rem] font-black uppercase mb-12 md:mb-20 tracking-tight leading-[0.9] text-left"
           >
-            Flexible <br /> Cashback
+            How VLOO <br /> Works
           </motion.h2>
 
           <div className="space-y-4 w-full">
