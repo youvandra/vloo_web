@@ -50,7 +50,8 @@ export default function BuyCardPage() {
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
                 className="font-sans text-lg 2xl:text-2xl text-gray-600 max-w-xl"
               >
-                Order a physical card and start spending your digital assets anywhere.
+                Get a physical card designed for assigning crypto access. 
+                Assets stay on-chain, access waits until it is intentionally claimed.
               </motion.p>
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}

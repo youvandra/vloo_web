@@ -192,7 +192,7 @@ export function FooterSection() {
           {[...Array(10)].map((_, i) => (
             <div key={i} className="flex items-center mx-4">
               <span className="font-display font-black text-4xl md:text-6xl text-black opacity-90 uppercase tracking-tighter">
-                SMART TOOLS FOR CRYPTO
+                SMART ACCESS FOR CRYPTO
               </span>
               <span className="mx-4 text-[#0b1cc4] text-4xl md:text-6xl">•</span>
             </div>

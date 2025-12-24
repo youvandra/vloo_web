@@ -92,7 +92,6 @@ export default function CartPage() {
                             />
                             <div className="flex flex-col">
                               <span className="font-display text-base font-bold">{it.cardType} Card</span>
-                              <span className="text-xs text-gray-500">Physical Card</span>
                             </div>
                           </div>
                         </td>
