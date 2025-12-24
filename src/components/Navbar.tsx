@@ -82,6 +82,22 @@ export function Navbar({ showCart = false, theme }: { showCart?: boolean; theme?
     };
   }, []);
 
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    setIsOpen(false);
+    
+    // Check if we are on the home page
+    if (window.location.pathname !== "/") {
+      window.location.href = `/#${id}`;
+      return;
+    }
+
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 flex justify-center pt-6 pb-4 z-50 transition-all duration-300 pointer-events-none">
       <div 
@@ -92,7 +108,7 @@ export function Navbar({ showCart = false, theme }: { showCart?: boolean; theme?
             : "bg-white/90 text-black shadow-black/5"
         )}
       >
-        <Link href="/" className="font-display font-black text-current text-xl 2xl:text-3xl 3xl:text-5xl tracking-[-0.1em]">
+        <Link href="/" onClick={(e) => scrollToSection(e, "hero")} className="font-display font-black text-current text-xl 2xl:text-3xl 3xl:text-5xl tracking-[-0.1em]">
           VLOO
         </Link>
         
@@ -130,16 +146,16 @@ export function Navbar({ showCart = false, theme }: { showCart?: boolean; theme?
           "hidden md:flex items-center gap-6 2xl:gap-10 3xl:gap-16 text-sm 2xl:text-xl 3xl:text-2xl font-display font-normal",
           navTheme === "dark" ? "text-white/70" : "text-black/60"
         )}>
-          <Link href="#" className={cn("transition-colors", navTheme === "dark" ? "hover:text-white" : "hover:text-vloo-blue")}>
-            About
+          <Link href="/#features" onClick={(e) => scrollToSection(e, "features")} className={cn("transition-colors", navTheme === "dark" ? "hover:text-white" : "hover:text-vloo-blue")}>
+            Features
           </Link>
-          <Link href="#" className={cn("transition-colors", navTheme === "dark" ? "hover:text-white" : "hover:text-vloo-blue")}>
-            Benefit to App
+          <Link href="/#how-it-works" onClick={(e) => scrollToSection(e, "how-it-works")} className={cn("transition-colors", navTheme === "dark" ? "hover:text-white" : "hover:text-vloo-blue")}>
+            How it Works
           </Link>
-          <Link href="#" className={cn("transition-colors", navTheme === "dark" ? "hover:text-white" : "hover:text-vloo-blue")}>
-            Start
+          <Link href="/#benefits" onClick={(e) => scrollToSection(e, "benefits")} className={cn("transition-colors", navTheme === "dark" ? "hover:text-white" : "hover:text-vloo-blue")}>
+            Benefits
           </Link>
-          <Link href="#" className={cn("transition-colors", navTheme === "dark" ? "hover:text-white" : "hover:text-vloo-blue")}>
+          <Link href="/#faqs" onClick={(e) => scrollToSection(e, "faqs")} className={cn("transition-colors", navTheme === "dark" ? "hover:text-white" : "hover:text-vloo-blue")}>
             FAQs
           </Link>
           <div className="flex items-center gap-4">
@@ -185,10 +201,10 @@ export function Navbar({ showCart = false, theme }: { showCart?: boolean; theme?
                 <ShoppingCart className="h-4 w-4" />
                 Cart
               </Link>
-              <Link href="#" className="px-3 py-2 rounded-lg hover:bg-white/10" onClick={() => setIsOpen(false)}>About</Link>
-              <Link href="#" className="px-3 py-2 rounded-lg hover:bg-white/10" onClick={() => setIsOpen(false)}>Benefit to App</Link>
-              <Link href="#" className="px-3 py-2 rounded-lg hover:bg-white/10" onClick={() => setIsOpen(false)}>Start</Link>
-              <Link href="#" className="px-3 py-2 rounded-lg hover:bg-white/10" onClick={() => setIsOpen(false)}>FAQs</Link>
+              <Link href="/#features" onClick={(e) => scrollToSection(e, "features")} className="px-3 py-2 rounded-lg hover:bg-white/10">Features</Link>
+              <Link href="/#how-it-works" onClick={(e) => scrollToSection(e, "how-it-works")} className="px-3 py-2 rounded-lg hover:bg-white/10">How it Works</Link>
+              <Link href="/#benefits" onClick={(e) => scrollToSection(e, "benefits")} className="px-3 py-2 rounded-lg hover:bg-white/10">Benefits</Link>
+              <Link href="/#faqs" onClick={(e) => scrollToSection(e, "faqs")} className="px-3 py-2 rounded-lg hover:bg-white/10">FAQs</Link>
               <Button
                 asChild
                 className={cn(

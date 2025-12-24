@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { HeroCard } from "@/components/ui/HeroCard";
+import Link from "next/link";
 
 export function HeroSection() {
   return (
@@ -54,8 +55,10 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
             >
-              <Button className="font-display rounded-[15px] 2xl:rounded-[25px] 3xl:rounded-[40px] bg-white text-black hover:bg-gray-100 px-8 py-6 2xl:px-12 2xl:py-8 3xl:px-20 3xl:py-12 text-base 2xl:text-xl 3xl:text-3xl font-semibold transition-transform hover:scale-105 cursor-pointer">
-                How it works?
+              <Button asChild className="font-display rounded-[15px] 2xl:rounded-[25px] 3xl:rounded-[40px] bg-white text-black hover:bg-gray-100 px-8 py-6 2xl:px-12 2xl:py-8 3xl:px-20 3xl:py-12 text-base 2xl:text-xl 3xl:text-3xl font-semibold transition-transform hover:scale-105 cursor-pointer">
+                <Link href="/buy-card">
+                  Get the card
+                </Link>
               </Button>
             </motion.div>
           </div>

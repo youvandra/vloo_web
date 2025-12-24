@@ -14,19 +14,29 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <HeroSection />
+      <div id="hero">
+        <HeroSection />
+      </div>
 
       {/* Feature Section */}
-      <FeatureSection />
+      <div id="features">
+        <FeatureSection />
+      </div>
 
       {/* Interactive Feature Section */}
-      <InteractiveFeatureSection />
+      <div id="how-it-works">
+        <InteractiveFeatureSection />
+      </div>
 
       {/* Carousel Section */}
-      <CarouselSection />
+      <div id="benefits">
+        <CarouselSection />
+      </div>
 
       {/* FAQ Section */}
-      <FAQSection />
+      <div id="faqs">
+        <FAQSection />
+      </div>
 
       {/* CTA Section */}
       <CTASection />
