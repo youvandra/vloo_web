@@ -46,7 +46,7 @@ export function HeroSection() {
               className="font-sans text-lg 2xl:text-2xl 3xl:text-4xl font-normal max-w-md 2xl:max-w-2xl 3xl:max-w-4xl leading-relaxed text-white/90"
             >
               VLOO lets you give access to crypto funds without forcing them to be claimed now.
-              <br />
+              <br /><br />
               Create a wallet, fund it, and assign who can claim it later using a physical card.
             </motion.p>
             
