@@ -173,9 +173,6 @@
             </h2>
             
             <p className="font-sans text-lg 2xl:text-2xl 3xl:text-4xl font-normal text-gray-500 max-w-md 2xl:max-w-2xl 3xl:max-w-4xl md:mx-0 leading-relaxed">
-              VLOO is built for situations where access should not be immediate,
-              but certainty still matters.
-              <br/><br/>
               Tap the card to view assigned crypto funds.
               Unlock access only when conditions are met, such as time, intent, or trust.
               <br/><br/>
