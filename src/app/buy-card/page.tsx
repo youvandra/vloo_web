@@ -9,23 +9,23 @@ import { ShoppingCart } from "lucide-react";
 
 export default function BuyCardPage() {
   const [variant, setVariant] = useState<"black" | "blue">("blue");
-  const [cardType, setCardType] = useState<"Personal" | "Gift" | "Business">("Personal");
-  type CartItemStored = { variant: "black" | "blue"; cardType: "Personal" | "Gift" | "Business"; price?: number; qty?: number };
+  const [cardTag, setCardTag] = useState<string>("Personal");
+  type CartItemStored = { variant: "black" | "blue"; cardTag: string; price?: number; qty?: number };
   const addToCart = () => {
     try {
       const existing = JSON.parse(localStorage.getItem("cartItems") || "[]");
       const arr: CartItemStored[] = Array.isArray(existing) ? existing : [];
-      const idx = arr.findIndex((it: CartItemStored) => it.variant === variant && it.cardType === cardType);
+      const idx = arr.findIndex((it: CartItemStored) => it.variant === variant && it.cardTag === cardTag);
       if (idx >= 0) {
         const it = arr[idx];
         arr[idx] = { ...it, qty: (it.qty || 1) + 1 };
       } else {
-        arr.push({ variant, cardType, price: 29, qty: 1 });
+        arr.push({ variant, cardTag, price: 29, qty: 1 });
       }
       localStorage.setItem("cartItems", JSON.stringify(arr));
       window.dispatchEvent(new Event("cart:updated"));
     } catch {
-      localStorage.setItem("cartItems", JSON.stringify([{ variant, cardType, price: 29, qty: 1 }]));
+      localStorage.setItem("cartItems", JSON.stringify([{ variant, cardTag, price: 29, qty: 1 }]));
       window.dispatchEvent(new Event("cart:updated"));
     }
   };
@@ -77,18 +77,17 @@ export default function BuyCardPage() {
                   </div>
                   <div className="w-px self-stretch bg-black/10" />
                   <div className="rounded-2xl border border-black/10 p-4 min-w-[180px]">
-                    <label htmlFor="card-type" className="text-xs text-gray-500">Card Type</label>
-                    <select
-                      id="card-type"
-                      value={cardType}
-                      onChange={(e) => setCardType(e.target.value as "Personal" | "Gift" | "Business")}
+                    <label htmlFor="card-tag" className="text-xs text-gray-500">Card Tag</label>
+                    <input
+                      id="card-tag"
+                      type="text"
+                      value={cardTag}
+                      onChange={(e) => setCardTag(e.target.value)}
+                      maxLength={15}
                       className="mt-2 w-full rounded-lg border border-black/10 bg-white text-black text-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black/20"
-                      aria-label="Select card type"
-                    >
-                      <option value="Personal">Personal</option>
-                      <option value="Gift">Gift</option>
-                      <option value="Business">Business</option>
-                    </select>
+                      placeholder="e.g. Personal"
+                      aria-label="Enter card tag"
+                    />
                   </div>
                 </div>
                 <div className="border-t border-black/10" />
@@ -117,7 +116,7 @@ export default function BuyCardPage() {
             className="relative h-[420px] md:h-[600px] flex items-center justify-center order-1 md:order-2 mt-8 md:mt-0 mb-4 md:mb-0"
           >
               <div className="scale-[0.75] md:scale-100">
-                <HeroCard variant={variant} staticOnMobile label={cardType} />
+                <HeroCard variant={variant} staticOnMobile label={cardTag} />
               </div>
           </motion.div>
           </div>

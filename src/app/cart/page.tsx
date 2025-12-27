@@ -8,7 +8,7 @@ import Link from "next/link";
 
 type CartItem = {
   variant: "black" | "blue";
-  cardType: "Personal" | "Gift" | "Business";
+  cardTag: string;
   price: number;
   qty?: number;
 };
@@ -70,7 +70,7 @@ export default function CartPage() {
                 <table className="w-full text-left">
                   <thead className="bg-black/5">
                     <tr>
-                      <th className="px-4 py-3 font-sans text-xs text-gray-600">Product</th>
+                      <th className="px-4 py-3 font-sans text-xs text-gray-600">Tag</th>
                       <th className="px-4 py-3 font-sans text-xs text-gray-600">Unit Price</th>
                       <th className="px-4 py-3 font-sans text-xs text-gray-600">Quantity</th>
                       <th className="px-4 py-3 font-sans text-xs text-gray-600">Subtotal</th>
@@ -91,7 +91,7 @@ export default function CartPage() {
                               aria-hidden
                             />
                             <div className="flex flex-col">
-                              <span className="font-display text-base font-bold">{it.cardType} Card</span>
+                              <span className="font-display text-base font-bold">{it.cardTag}</span>
                             </div>
                           </div>
                         </td>
@@ -185,7 +185,7 @@ export default function CartPage() {
                           aria-hidden
                         />
                         <div className="flex flex-col">
-                          <span className="font-display text-lg font-bold">{it.cardType} Card</span>
+                          <span className="font-display text-lg font-bold">{it.cardTag} Card</span>
                           <span className="text-xs text-gray-500">Physical Card</span>
                         </div>
                       </div>
