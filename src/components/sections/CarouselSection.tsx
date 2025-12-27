@@ -9,17 +9,17 @@ import { Button } from "@/components/ui/button";
 
 const features = [
   {
-    icon: Zap,
-    title: "Long-term compensation.",
-    description: "Assign value today. Let it unlock through time, milestones, or trust without legal overhead or financial friction.",
-    color: "bg-pale-violet",
-    textColor: "text-black",
-  },
-  {
     icon: ShieldCheck,
     title: "Quiet inheritance",
     description: "No paperwork. No frozen accounts. Just access that waits patiently for the next chapter.",
     color: "bg-white",
+    textColor: "text-black",
+  },
+  {
+    icon: Zap,
+    title: "Long-term compensation.",
+    description: "Assign value today. Let it unlock through time, milestones, or trust without legal overhead or financial friction.",
+    color: "bg-pale-violet",
     textColor: "text-black",
   },
   {
@@ -86,10 +86,10 @@ export function CarouselSection() {
     } 
     // Immediate Neighbors (Left/Right)
     else if (diff === -1) {
-      return "scale-[0.85] opacity-70 z-20 -rotate-[15deg] translate-y-24 blur-[0.5px] grayscale-[20%]";
+      return "scale-[0.85] opacity-90 z-20 -rotate-[15deg] translate-y-24 blur-[0.5px] grayscale-[20%]";
     } 
     else if (diff === 1) {
-      return "scale-[0.85] opacity-70 z-20 rotate-[15deg] translate-y-24 blur-[0.5px] grayscale-[20%]";
+      return "scale-[0.85] opacity-90 z-20 rotate-[15deg] translate-y-24 blur-[0.5px] grayscale-[20%]";
     }
     // Second Neighbors (Left/Right)
     else if (diff === -2) {

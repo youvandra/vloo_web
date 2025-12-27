@@ -162,8 +162,7 @@ export function Navbar({ showCart = false, theme }: { showCart?: boolean; theme?
             <Button
               asChild
               className={cn(
-                "rounded-full px-6 py-3 font-bold",
-                navTheme === "dark" ? "bg-white text-black hover:bg-gray-200" : "bg-black text-white hover:bg-gray-800"
+                "rounded-full px-6 py-3 font-bold bg-[#0b1cc4] text-white hover:bg-[#0b1cc4]/90"
               )}
             >
               <Link href="/buy-card">Buy Card</Link>
@@ -208,8 +207,7 @@ export function Navbar({ showCart = false, theme }: { showCart?: boolean; theme?
               <Button
                 asChild
                 className={cn(
-                  "mt-2 rounded-lg px-4 py-3 font-bold w-full",
-                  navTheme === "dark" ? "bg-white text-black hover:bg-gray-200" : "bg-black text-white hover:bg-gray-800"
+                  "mt-2 rounded-lg px-4 py-3 font-bold w-full bg-[#0b1cc4] text-white hover:bg-[#0b1cc4]/90"
                 )}
               >
                 <Link href="/buy-card" onClick={() => setIsOpen(false)}>Buy Card</Link>

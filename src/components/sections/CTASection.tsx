@@ -121,7 +121,7 @@ export function CTASection() {
           <p className="font-sans text-gray-400 text-sm md:text-base 2xl:text-xl leading-relaxed text-center md:text-right max-w-md">
             Make payments with a virtual card linked to your favorite digital assets.
           </p>
-          <Button className="rounded-full bg-white text-black hover:bg-gray-200 px-8 py-6 text-base font-bold flex-shrink-0">
+          <Button className="rounded-full bg-[#0b1cc4] text-white hover:bg-[#0b1cc4]/90 px-8 py-6 text-base font-bold flex-shrink-0">
             Download the App
           </Button>
         </motion.div>

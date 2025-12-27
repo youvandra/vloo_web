@@ -6,16 +6,16 @@ import Matter from "matter-js";
 
 // Coin Data with sizes for physics bodies
 const COINS = [
-  { icon: Bitcoin, size: 80, color: "#0b1cc4", label: "btc", scale: 1.2 },
-  { icon: Wallet, size: 48, color: "#0b1cc4", label: "wallet", scale: 1 },
-  { icon: Zap, size: 60, color: "#0b1cc4", label: "zap", scale: 1.1 },
-  { icon: ArrowRightLeft, size: 50, color: "#0b1cc4", label: "arrow", scale: 0.9 },
-  { icon: Globe, size: 100, color: "#0b1cc4", label: "globe", scale: 1.4 },
-  { icon: Layers, size: 55, color: "#0b1cc4", label: "layers", scale: 1 },
-  { icon: Coins, size: 70, color: "#0b1cc4", label: "coins", scale: 1.15 },
+  { icon: Bitcoin, size: 80, color: "#d199f9", label: "btc", scale: 1.2 },
+  { icon: Wallet, size: 48, color: "#d199f9", label: "wallet", scale: 1 },
+  { icon: Zap, size: 60, color: "#d199f9", label: "zap", scale: 1.1 },
+  { icon: ArrowRightLeft, size: 50, color: "#d199f9", label: "arrow", scale: 0.9 },
+  { icon: Globe, size: 100, color: "#d199f9", label: "globe", scale: 1.4 },
+  { icon: Layers, size: 55, color: "#d199f9", label: "layers", scale: 1 },
+  { icon: Coins, size: 70, color: "#d199f9", label: "coins", scale: 1.15 },
   // Duplicate some for more "rain"
-  { icon: Bitcoin, size: 60, color: "#0b1cc4", label: "btc-small", scale: 0.9 },
-  { icon: Zap, size: 45, color: "#0b1cc4", label: "zap-small", scale: 0.8 },
+  { icon: Bitcoin, size: 60, color: "#d199f9", label: "btc-small", scale: 0.9 },
+  { icon: Zap, size: 45, color: "#d199f9", label: "zap-small", scale: 0.8 },
 ];
 
 export function FooterSection() {
@@ -169,7 +169,7 @@ export function FooterSection() {
             <div
               key={index}
               ref={(el) => { coinElementsRef.current[index] = el; }}
-              className="absolute top-0 left-0 flex items-center justify-center rounded-full bg-[#0b1cc4] text-white shadow-lg"
+              className="absolute top-0 left-0 flex items-center justify-center rounded-full bg-[#d199f9] text-black shadow-lg"
               style={{
                 width: sizePx,
                 height: sizePx,
@@ -194,7 +194,7 @@ export function FooterSection() {
               <span className="font-display font-black text-4xl md:text-6xl text-black opacity-90 uppercase tracking-tighter">
                 SMART ACCESS FOR CRYPTO
               </span>
-              <span className="mx-4 text-[#0b1cc4] text-4xl md:text-6xl">•</span>
+              <span className="mx-4 text-[#d199f9] text-4xl md:text-6xl">•</span>
             </div>
           ))}
         </div>

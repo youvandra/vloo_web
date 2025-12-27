@@ -169,7 +169,7 @@
           <div className="space-y-6 2xl:space-y-10 3xl:space-y-16">
             <h2 className="font-display text-5xl md:text-7xl 2xl:text-8xl 3xl:text-[11rem] font-black leading-[0.9] tracking-tighter uppercase text-black">
               Claim <br/>
-              when ready.
+              when <span className="text-[#d199f9]">ready.</span>
             </h2>
             
             <p className="font-sans text-lg 2xl:text-2xl 3xl:text-4xl font-normal text-gray-500 max-w-md 2xl:max-w-2xl 3xl:max-w-4xl md:mx-0 leading-relaxed">
@@ -182,11 +182,13 @@
             </p>
 
             <div className="hidden md:flex flex-col sm:flex-row gap-4 2xl:gap-8 3xl:gap-12 justify-start">
-              <Button className="font-display rounded-[15px] 2xl:rounded-[25px] 3xl:rounded-[40px] bg-black text-white hover:bg-gray-900 px-8 py-6 2xl:px-12 2xl:py-8 3xl:px-20 3xl:py-12 text-base 2xl:text-xl 3xl:text-3xl font-semibold transition-transform hover:scale-105 cursor-pointer">
-                App Store
+              <Button className="font-display rounded-[15px] 2xl:rounded-[25px] 3xl:rounded-[40px] bg-black text-white hover:bg-gray-900 px-8 py-6 2xl:px-12 2xl:py-8 3xl:px-20 3xl:py-12 text-base 2xl:text-xl 3xl:text-3xl font-semibold transition-transform hover:scale-105 cursor-pointer inline-flex items-center justify-center gap-4">
+                <img src="/assets/icons/appstore.svg" alt="App Store" className="w-8 h-8 2xl:w-10 2xl:h-10 object-contain" />
+                <span>App Store</span>
               </Button>
-              <Button className="font-display rounded-[15px] 2xl:rounded-[25px] 3xl:rounded-[40px] bg-black text-white hover:bg-gray-900 px-8 py-6 2xl:px-12 2xl:py-8 3xl:px-20 3xl:py-12 text-base 2xl:text-xl 3xl:text-3xl font-semibold transition-transform hover:scale-105 cursor-pointer">
-                Play Store
+              <Button className="font-display rounded-[15px] 2xl:rounded-[25px] 3xl:rounded-[40px] bg-black text-white hover:bg-gray-900 px-8 py-6 2xl:px-12 2xl:py-8 3xl:px-20 3xl:py-12 text-base 2xl:text-xl 3xl:text-3xl font-semibold transition-transform hover:scale-105 cursor-pointer inline-flex items-center justify-center gap-4">
+                <img src="/assets/icons/playstore.svg" alt="Play Store" className="w-8 h-8 2xl:w-10 2xl:h-10 object-contain" />
+                <span>Play Store</span>
               </Button>
             </div>
           </div>
@@ -200,11 +202,13 @@
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
           className="w-full flex justify-center gap-4 flex-wrap order-3 md:hidden"
         >
-          <Button className="font-display rounded-[15px] 2xl:rounded-[25px] 3xl:rounded-[40px] bg-black text-white hover:bg-gray-900 px-8 py-6 2xl:px-12 2xl:py-8 3xl:px-20 3xl:py-12 text-base 2xl:text-xl 3xl:text-3xl font-semibold transition-transform hover:scale-105 cursor-pointer">
-            App Store
+          <Button className="font-display rounded-[15px] 2xl:rounded-[25px] 3xl:rounded-[40px] bg-black text-white hover:bg-gray-900 px-8 py-6 2xl:px-12 2xl:py-8 3xl:px-20 3xl:py-12 text-base 2xl:text-xl 3xl:text-3xl font-semibold transition-transform hover:scale-105 cursor-pointer inline-flex items-center justify-center gap-4">
+            <img src="/assets/icons/appstore.svg" alt="App Store" className="w-8 h-8 2xl:w-10 2xl:h-10 object-contain" />
+            <span>App Store</span>
           </Button>
-          <Button className="font-display rounded-[15px] 2xl:rounded-[25px] 3xl:rounded-[40px] bg-black text-white hover:bg-gray-900 px-8 py-6 2xl:px-12 2xl:py-8 3xl:px-20 3xl:py-12 text-base 2xl:text-xl 3xl:text-3xl font-semibold transition-transform hover:scale-105 cursor-pointer">
-            Play Store
+          <Button className="font-display rounded-[15px] 2xl:rounded-[25px] 3xl:rounded-[40px] bg-black text-white hover:bg-gray-900 px-8 py-6 2xl:px-12 2xl:py-8 3xl:px-20 3xl:py-12 text-base 2xl:text-xl 3xl:text-3xl font-semibold transition-transform hover:scale-105 cursor-pointer inline-flex items-center justify-center gap-4">
+            <img src="/assets/icons/playstore.svg" alt="Play Store" className="w-8 h-8 2xl:w-10 2xl:h-10 object-contain" />
+            <span>Play Store</span>
           </Button>
         </motion.div>
       </div>

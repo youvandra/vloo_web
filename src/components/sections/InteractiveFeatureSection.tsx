@@ -79,7 +79,7 @@ export function InteractiveFeatureSection() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="font-display text-5xl md:text-7xl 2xl:text-8xl 3xl:text-[8rem] font-black uppercase mb-12 md:mb-20 tracking-tight leading-[0.9] text-left"
           >
-            How VLOO <br /> Works
+            How <span className="text-[#d199f9]">VLOO</span> <br /> Works
           </motion.h2>
 
           <div className="space-y-4 w-full">

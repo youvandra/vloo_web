@@ -19,8 +19,13 @@ export function HeroSection() {
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
               className="w-full h-full flex items-center justify-center"
             >
-              <div className="scale-[0.75] md:scale-100">
+              <div className="scale-[0.65] md:scale-90 relative w-full h-full">
                 <HeroCard staticOnMobile />
+                <div className="absolute bottom-0 md:bottom-12 left-1/2 -translate-x-1/2 pointer-events-none">
+                  <span className="font-mono text-[9px] md:text-[10px] 2xl:text-xs text-white/40 tracking-[0.3em] uppercase bg-black/10 px-3 py-1.5 rounded-full backdrop-blur-[2px] border border-white/5 whitespace-nowrap">
+                    crypto access card
+                  </span>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -55,7 +60,7 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
             >
-              <Button asChild className="font-display rounded-[15px] 2xl:rounded-[25px] 3xl:rounded-[40px] bg-white text-black hover:bg-gray-100 px-8 py-6 2xl:px-12 2xl:py-8 3xl:px-20 3xl:py-12 text-base 2xl:text-xl 3xl:text-3xl font-semibold transition-transform hover:scale-105 cursor-pointer">
+              <Button asChild className="font-display rounded-[15px] 2xl:rounded-[25px] 3xl:rounded-[40px] bg-[#d199f9] text-black hover:bg-[#d199f9]/90 px-8 py-6 2xl:px-12 2xl:py-8 3xl:px-20 3xl:py-12 text-base 2xl:text-xl 3xl:text-3xl font-semibold transition-transform hover:scale-105 cursor-pointer border-none">
                 <Link href="/buy-card">
                   Get the card
                 </Link>
