@@ -48,15 +48,6 @@ export default function CartPage() {
         <div className="w-full max-w-6xl 2xl:max-w-screen-2xl 3xl:max-w-[90vw]">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 md:mb-10">
             <h1 className="font-display text-4xl md:text-6xl 2xl:text-7xl font-black tracking-tighter">Your Cart</h1>
-            <Button
-              asChild
-              className="rounded-full bg-black text-white hover:bg-gray-900 px-6 py-3 font-bold w-full md:w-auto"
-            >
-              <Link href="/buy-card" className="flex items-center justify-center gap-2">
-                <Plus className="h-4 w-4" />
-                {items.length === 0 ? "Buy Card" : "Buy More Card"}
-              </Link>
-            </Button>
           </div>
 
           {items.length === 0 ? (
@@ -109,7 +100,7 @@ export default function CartPage() {
                                 localStorage.setItem("cartItems", JSON.stringify(next));
                                 window.dispatchEvent(new Event("cart:updated"));
                               }}
-                              className="px-3 py-2 rounded-lg border border-black/10 text-sm hover:bg-black/5"
+                              className="px-3 py-2 rounded-lg border border-black/10 text-sm hover:bg-black/5 cursor-pointer"
                               aria-label="Decrease quantity"
                             >
                               -
@@ -137,7 +128,7 @@ export default function CartPage() {
                                 localStorage.setItem("cartItems", JSON.stringify(next));
                                 window.dispatchEvent(new Event("cart:updated"));
                               }}
-                              className="px-3 py-2 rounded-lg border border-black/10 text-sm hover:bg-black/5"
+                              className="px-3 py-2 rounded-lg border border-black/10 text-sm hover:bg-black/5 cursor-pointer"
                               aria-label="Increase quantity"
                             >
                               +
@@ -157,7 +148,7 @@ export default function CartPage() {
                               localStorage.setItem("cartItems", JSON.stringify(next));
                               window.dispatchEvent(new Event("cart:updated"));
                             }}
-                            className="px-3 py-2 rounded-lg border border-black/10 text-sm flex items-center gap-2 hover:bg-red-50 text-red-600 border-transparent hover:border-red-100"
+                            className="px-3 py-2 rounded-lg border border-black/10 text-sm flex items-center gap-2 hover:bg-red-50 text-red-600 border-transparent hover:border-red-100 cursor-pointer"
                             aria-label="Remove item"
                           >
                             <Trash className="h-4 w-4" />
@@ -204,7 +195,7 @@ export default function CartPage() {
                             localStorage.setItem("cartItems", JSON.stringify(next));
                             window.dispatchEvent(new Event("cart:updated"));
                           }}
-                          className="h-8 w-8 flex items-center justify-center rounded-lg border border-black/10 text-sm hover:bg-black/5 bg-white"
+                          className="h-8 w-8 flex items-center justify-center rounded-lg border border-black/10 text-sm hover:bg-black/5 bg-white cursor-pointer"
                           aria-label="Decrease quantity"
                         >
                           -
@@ -232,7 +223,7 @@ export default function CartPage() {
                             localStorage.setItem("cartItems", JSON.stringify(next));
                             window.dispatchEvent(new Event("cart:updated"));
                           }}
-                          className="h-8 w-8 flex items-center justify-center rounded-lg border border-black/10 text-sm hover:bg-black/5 bg-white"
+                          className="h-8 w-8 flex items-center justify-center rounded-lg border border-black/10 text-sm hover:bg-black/5 bg-white cursor-pointer"
                           aria-label="Increase quantity"
                         >
                           +
@@ -254,7 +245,7 @@ export default function CartPage() {
                           localStorage.setItem("cartItems", JSON.stringify(next));
                           window.dispatchEvent(new Event("cart:updated"));
                         }}
-                        className="px-4 py-2 rounded-lg bg-red-50 text-red-600 text-sm font-medium flex items-center gap-2 hover:bg-red-100"
+                        className="px-4 py-2 rounded-lg bg-red-50 text-red-600 text-sm font-medium flex items-center gap-2 hover:bg-red-100 cursor-pointer"
                         aria-label="Remove item"
                       >
                         <Trash className="h-4 w-4" />
@@ -271,7 +262,7 @@ export default function CartPage() {
               </div>
 
               <div className="mt-6 flex justify-end">
-                <Button className="rounded-full bg-black text-white hover:bg-gray-900 px-8 py-4 font-bold w-full md:w-auto flex items-center justify-center gap-2">
+                <Button className="rounded-full bg-[#0b1cc4] text-white hover:bg-[#0b1cc4]/90 px-8 py-4 font-bold w-full md:w-auto flex items-center justify-center gap-2">
                   Checkout
                   <ArrowRight className="h-4 w-4" />
                 </Button>
